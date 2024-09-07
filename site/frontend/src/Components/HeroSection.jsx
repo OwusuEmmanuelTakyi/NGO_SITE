@@ -20,24 +20,15 @@ const HeroSection = ({title,description}) => {
 
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    appendDots: dots => (
-      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
-        <ul style={{ margin: 0 }}>{dots}</ul>
-      </Box>
-    ),
-    beforeChange: (current, next) => {
-      document.querySelector('.hero-text').classList.remove('fade-in');
-    },
-    afterChange: () => {
-      document.querySelector('.hero-text').classList.add('fade-in');
-    },
+   
+   
   };
 
   return (
@@ -56,16 +47,16 @@ const HeroSection = ({title,description}) => {
           <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)' }} />
         </Box>
       </Slider>
-      <Box className="hero-text" sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-        <Typography variant="h3" color={grey[300]}>{title}</Typography>
+      <Box className="hero-text" sx={{ position: 'absolute', top: '40%', left: '20%',right:'10%', textAlign: 'center', color: 'white' }}>
+        <Typography variant="h3" color={grey[300]} fontWeight='700'>{title}</Typography>
         <Typography variant="h6" color={grey[300]}>{description}</Typography>
 
         {isHomePage ? (
              <Link to='/getinvolved'><Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:10, paddingX:5}}>Get Involved</Button></Link>
         ) :(
-            <Box sx={{display:'flex', flexDirection:'row', gap:2, fontSize:18, marginLeft:10, marginTop:10, color:'white'}}>
-               <Link to='/'sx={{textDecoration:'none', }}><Typography color='white' >Home    |</Typography></Link>
-               <Typography color='white'>{location.pathname.replace('/', '')}</Typography>
+            <Box sx={{display:'flex', flexDirection:'row', gap:2, fontSize:18,position: 'absolute', bottom: '-130%', left: '40%', textAlign: 'center', color: 'white'}}>
+               <Link to='/'style={{ textDecoration: 'none' }}><Typography color='white' sx={{borderRight: '2px solid white', paddingRight:3 }} >HOME</Typography></Link>
+               <Typography color='white'>{location.pathname.replace('/', '').toLocaleUpperCase()}</Typography>
             </Box>
         )
     }
