@@ -6,6 +6,7 @@ import ContactUs from './Pages/ContactUs';
 import Donate from './Pages/Donate';
 import GetInvolved from './Pages/GetInvolved';
 import ErrorPage from './Pages/ErrorPage';
+import './App.css'
 
 function App() {
   return (
