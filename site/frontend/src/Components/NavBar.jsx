@@ -6,13 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
-import { Stack } from '@mui/material';
 import { grey } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
 const pages = ['HOME', 'ABOUT', 'OUR PROGRAMS' ,'GET INVOLVED', 'CONTACT US',];
 
@@ -37,7 +35,7 @@ function NavBar() {
         <Toolbar disableGutters sx={{ height:'100%',paddingX:{lg:'3%',md:0},  display:'flex',justifyContent:'space-between', alignItems:'center'}}>
        
           
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none',lg:'none' } }}>
+        <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none',lg:'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -75,18 +73,67 @@ function NavBar() {
           
          
           <Box sx={{  display: { xs: 'none', md: 'flex' } }}>
-           
-            {pages.map((page) => (
-               
+            <Link to='/' style={{textDecoration:'none', color:'inherit'}}>
               <Typography
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ ':hover':{cursor:'pointer', opacity:0.6, transitionDuration:'0.5s', transitionDelay:'0.1s'}, display: 'block',fontSize:{lg:20,md:18},marginX:{lg:2,md:1} }}
+                sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
+                  transitionDuration:'0.5s', 
+                  transitionDelay:'0.1s'},
+                 display: 'block',fontSize:{lg:20,md:18},
+                 marginX:{lg:2,md:1} }}
               >
-                {page}
+                 HOME
               </Typography>
+              </Link>
              
-            ))}
+            <Link to='/aboutus' style={{textDecoration:'none', color:'inherit'}}>
+              <Typography
+                sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
+                  transitionDuration:'0.5s', 
+                  transitionDelay:'0.1s'},
+                 display: 'block',fontSize:{lg:20,md:18},
+                 marginX:{lg:2,md:1} }}
+              >
+                ABOUT US
+              </Typography>
+              </Link>
+             
+            <Link to='/ourprograms' style={{textDecoration:'none', color:'inherit'}}>
+              <Typography
+                sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
+                  transitionDuration:'0.5s', 
+                  transitionDelay:'0.1s'},
+                 display: 'block',fontSize:{lg:20,md:18},
+                 marginX:{lg:2,md:1} }}
+              >
+               OUR PROGRAMS
+              </Typography>
+              </Link>
+             
+            <Link to='/getinvolved' style={{textDecoration:'none', color:'inherit'}}>
+              <Typography
+                sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
+                  transitionDuration:'0.5s', 
+                  transitionDelay:'0.1s'},
+                 display: 'block',fontSize:{lg:20,md:18},
+                 marginX:{lg:2,md:1} }}
+              >
+              GET INVOLVED
+              </Typography>
+              </Link>
+             
+            <Link to='/contactus' style={{textDecoration:'none', color:'inherit'}}>
+              <Typography
+                sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
+                  transitionDuration:'0.5s', 
+                  transitionDelay:'0.1s'},
+                 display: 'block',fontSize:{lg:20,md:18},
+                 marginX:{lg:2,md:1} }}
+              >
+                CONTACT US
+              </Typography>
+              </Link>
+             
+         
 
            
           </Box>

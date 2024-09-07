@@ -7,11 +7,13 @@ import Donate from './Pages/Donate';
 import GetInvolved from './Pages/GetInvolved';
 import ErrorPage from './Pages/ErrorPage';
 import './App.css'
+import NavBar from './Components/NavBar';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+      <NavBar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
