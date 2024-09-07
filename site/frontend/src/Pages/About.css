@@ -1,0 +1,164 @@
+/* About Page Container */
+.about-container {
+    padding: 60px 30px;
+    background: linear-gradient(135deg, #f0f9ff, #eaf5ff);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.8;
+  }
+  
+  .about-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for section to give it a subtle lift */
+  .about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Headings */
+  h1 {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(90deg, #007bff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+    color: #0f4c81;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+  }
+  
+  h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #007bff;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
+  
+  /* Paragraphs and Text Styling */
+  p, li {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  p {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  strong {
+    color: #007bff;
+  }
+  
+  /* List Styling */
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px auto;
+    max-width: 900px;
+  }
+  
+  ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #007bff;
+    font-size: 1.5rem;
+  }
+  
+  /* Buttons for possible future use (optional) */
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 30px;
+    }
+  
+    .about-section {
+      padding: 30px;
+    }
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    p, li {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-container {
+      padding: 20px;
+    }
+  
+    .about-section {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.6rem;
+    }
+  
+    p, li {
+      font-size: 0.95rem;
+    }
+  }
+  
