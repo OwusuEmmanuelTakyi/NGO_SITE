@@ -11,23 +11,29 @@ import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { grey } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
+
+
 
 const pages = ['HOME', 'ABOUT', 'OUR PROGRAMS' ,'GET INVOLVED', 'CONTACT US',];
 
 
-function NavBar() {
-  const [anchorElNav, setAnchorElNav] = useState(null);
+const NavBar = ()=> {
+
   
+
+
+
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
  
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
  
   return (
     <AppBar position="static" sx={{height:150, backgroundColor:grey[300], color:'darkgoldenrod' }}elevation={1}>
@@ -71,7 +77,6 @@ function NavBar() {
           </Box>
           <Typography sx={{display:{xs:'none',sm:'flex'},margin:0, fontSize:{lg:40,md:25}}}>LOGO</Typography>
           
-         
           <Box sx={{  display: { xs: 'none', md: 'flex' } }}>
             <Link to='/' style={{textDecoration:'none', color:'inherit'}}>
               <Typography
@@ -132,16 +137,10 @@ function NavBar() {
                 CONTACT US
               </Typography>
               </Link>
-             
-         
-
            
           </Box>
-          <Button variant='contained' sx={{display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100}, height:{md:50,sm:40}}}>Donate</Button>
-         
-          
-          
-        
+          <Link to='/donate' sx={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100}, height:{md:50,sm:40}}}>Donate</Button></Link>
+
         </Toolbar>
    
     </AppBar>

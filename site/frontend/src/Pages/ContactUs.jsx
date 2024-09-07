@@ -2,10 +2,18 @@ import React from 'react';
 import './Contact.css';
 //import Navbar from '../Components/NavBar'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import HeroSection from '../Components/HeroSection';
+
 
 const ContactForm = () => {
   return (
+
+
+   
+
+   
     <div className="contact-form-container">
+       
       <h2>Contact Us</h2>
       <form className="contact-form">
         <div className="form-group">
@@ -27,6 +35,7 @@ const ContactForm = () => {
         <button type="submit" className="submit-btn">Submit</button>
       </form>
     </div>
+    
   );
 };
 
@@ -49,6 +58,8 @@ const ContactInfo = () => {
         </div>
       </div>
     </div>
+    
+    
   );
 };
 
@@ -74,7 +85,10 @@ const ContactMap = () => {
 };
 
 const Contact = () => {
+  const title = 'CONTACT US'
   return (
+    <>
+    <HeroSection title={title}/>
     <section className="contact-section">
       <div className="form-section">
         <ContactForm />
@@ -84,6 +98,7 @@ const Contact = () => {
         <ContactMap />
       </div>
     </section>
+    </>
   );
 };
 

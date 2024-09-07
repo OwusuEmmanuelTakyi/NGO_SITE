@@ -8,8 +8,17 @@ import image2 from '../images/image2.jpg';
 import image3 from '../images/image3.jpg';
 import './HeroSection.css';
 import { grey } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-const HeroSection = () => {
+
+const HeroSection = ({title,description}) => {
+
+    const location = useLocation()
+    const isHomePage = location.pathname === '/'
+
+
+
   const settings = {
     dots: true,
     infinite: true,
@@ -48,9 +57,19 @@ const HeroSection = () => {
         </Box>
       </Slider>
       <Box className="hero-text" sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-        <Typography variant="h3" color={grey[300]}>Welcome to the AMA YEDUAH FOUNDATION</Typography>
-        <Typography variant="h6" color={grey[300]}>Empowering Communities Through Education and Health Awareness</Typography>
-        <Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:10, paddingX:5}}>Get Involved</Button>
+        <Typography variant="h3" color={grey[300]}>{title}</Typography>
+        <Typography variant="h6" color={grey[300]}>{description}</Typography>
+
+        {isHomePage ? (
+             <Link to='/getinvolved'><Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:10, paddingX:5}}>Get Involved</Button></Link>
+        ) :(
+            <Box sx={{display:'flex', flexDirection:'row', gap:2, fontSize:18, marginLeft:10, marginTop:10, color:'white'}}>
+               <Link to='/'sx={{textDecoration:'none', }}><Typography sx={{color:grey[300]}} >Home    |</Typography></Link>
+               <Typography>{location.pathname.replace('/', '')}</Typography>
+            </Box>
+        )
+    }
+       
       </Box>
     </Box>
   );
