@@ -64,8 +64,8 @@ const HeroSection = ({title,description}) => {
              <Link to='/getinvolved'><Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:10, paddingX:5}}>Get Involved</Button></Link>
         ) :(
             <Box sx={{display:'flex', flexDirection:'row', gap:2, fontSize:18, marginLeft:10, marginTop:10, color:'white'}}>
-               <Link to='/'sx={{textDecoration:'none', }}><Typography sx={{color:grey[300]}} >Home    |</Typography></Link>
-               <Typography>{location.pathname.replace('/', '')}</Typography>
+               <Link to='/'sx={{textDecoration:'none', }}><Typography color='white' >Home    |</Typography></Link>
+               <Typography color='white'>{location.pathname.replace('/', '')}</Typography>
             </Box>
         )
     }
