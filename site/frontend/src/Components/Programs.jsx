@@ -5,11 +5,12 @@ import p2 from '../images/girlChild.jpeg';
 import p3 from '../images/girlChild2.jpg';
 import p4 from '../images/youthAbuse1.jpg';
 import p5 from '../images/youthAbuse2.jpg';
+import { grey } from '@mui/material/colors';
 
 const Programs = () => {
 
   return (
-    <Box sx={{width:'100%', height:'auto', backgroundColor:'red', display:'flex',justifyContent:'center',alignItems:'center',gap:4,flexWrap:'wrap', marginTop:10}}>
+    <Box sx={{width:'100%', height:'auto', backgroundColor:'white', display:'flex',justifyContent:'center',alignItems:'center',gap:4,flexWrap:'wrap', marginTop:10}}>
       <Box boxShadow={4} sx={{width:{md:'25%',sm:'90%'}, height:400,backgroundColor:'blue',borderRadius:3, overflow:'hidden',objectFit:'fill'}}>
         <img src={p1} alt='first' width='100%' height='70%'/>
       </Box>
