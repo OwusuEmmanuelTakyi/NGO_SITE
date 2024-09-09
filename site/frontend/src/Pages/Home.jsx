@@ -1,5 +1,8 @@
 import React from 'react'
 import HeroSection from '../Components/HeroSection'
+import HomeTextSection from '../Components/HomeTextSection'
+import ProgramsText from '../Components/ProgramsText'
+import Programs from '../Components/Programs'
 
 const Home = () => {
   const title = 'Welcome to the AMA YEDUAH FOUNDATION'
@@ -8,7 +11,9 @@ const Home = () => {
   return (
     <div>
       <HeroSection title={title} description={description}/>
-        Home
+        <HomeTextSection/>
+        <ProgramsText/>
+        <Programs/>
         
     </div>
   )

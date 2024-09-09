@@ -8,7 +8,7 @@ import GetInvolved from './Pages/GetInvolved';
 import ErrorPage from './Pages/ErrorPage';
 import './App.css'
 import NavBar from './Components/NavBar';
-import HeroSection from './Components/HeroSection';
+
 
 function App() {
   return (

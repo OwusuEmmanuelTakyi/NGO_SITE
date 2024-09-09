@@ -1,8 +1,12 @@
 import React from 'react';
 import './About.css';
+import HeroSection from '../Components/HeroSection';
 
 const About = () => {
+  const title = 'ABOUT US'
   return (
+    <>
+    <HeroSection title={title}/>
     <div className="about-container">
       <section className="about-section">
         <h1>About AMA Yeduah Foundation</h1>
@@ -39,6 +43,7 @@ const About = () => {
         <p><strong>Location:</strong> New Achimota, Eagle Street, ANT/AB/35, GE-362-3478, Accra, Ghana</p>
       </section>
     </div>
+    </>
   );
 };
 

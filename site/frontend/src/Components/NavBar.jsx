@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
-import { grey } from '@mui/material/colors';
+
 import { Link } from 'react-router-dom';
 
 
@@ -36,7 +36,7 @@ const NavBar = ()=> {
   };
  
   return (
-    <AppBar position="static" sx={{height:150, backgroundColor:grey[300], color:'darkgoldenrod' }}elevation={1}>
+    <AppBar position="static" sx={{height:150, backgroundColor:'white', color:'darkgoldenrod' }}elevation={1}>
      
         <Toolbar disableGutters sx={{ height:'100%',paddingX:{lg:'3%',md:0},  display:'flex',justifyContent:'space-between', alignItems:'center'}}>
        
