@@ -8,6 +8,7 @@ import GetInvolved from './Pages/GetInvolved';
 import ErrorPage from './Pages/ErrorPage';
 import './App.css'
 import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/getinvolved" element={<GetInvolved />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
