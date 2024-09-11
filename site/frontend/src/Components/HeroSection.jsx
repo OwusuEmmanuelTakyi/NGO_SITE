@@ -52,7 +52,7 @@ const HeroSection = ({title,description}) => {
         <Typography variant="h6" color={grey[300]}>{description}</Typography>
 
         {isHomePage ? (
-             <Link to='/getinvolved'><Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:10, paddingX:5}}>Get Involved</Button></Link>
+             <Link to='/donate'><Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:10, paddingX:5}}>Get Involved</Button></Link>
         ) :(
             <Box sx={{display:'flex', flexDirection:'row', gap:2, fontSize:18,position: 'absolute', bottom: '-130%', left: '40%', textAlign: 'center', color: 'white'}}>
                <Link to='/'style={{ textDecoration: 'none' }}><Typography color='white' sx={{borderRight: '2px solid white', paddingRight:3 }} >HOME</Typography></Link>

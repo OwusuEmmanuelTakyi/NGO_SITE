@@ -9,11 +9,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
-
-import { Link } from 'react-router-dom';
-
-
-
+import useScrollDirection from './useScrollDirection'
+import { NavLink, Link } from 'react-router-dom';
+import './NavBar.css'
+import logo from '../images/LOGO.png'
 
 
 const pages = ['HOME', 'ABOUT', 'OUR PROGRAMS', 'CONTACT US',];
@@ -21,7 +20,7 @@ const pages = ['HOME', 'ABOUT', 'OUR PROGRAMS', 'CONTACT US',];
 
 const NavBar = ()=> {
 
-  
+  const scrollDirection = useScrollDirection();
 
 
 
@@ -36,7 +35,8 @@ const NavBar = ()=> {
   };
  
   return (
-    <AppBar position="static" sx={{height:150, backgroundColor:'white', color:'darkgoldenrod' }}elevation={1}>
+    <AppBar position="sticky" sx={{height:150, backgroundColor:'white', color:'darkgoldenrod', transform: scrollDirection === 'down' ? 'translateY(-100%)' : 'translateY(0)',
+      transition: 'transform 0.3s ease-in-out',}}elevation={1}>
      
         <Toolbar disableGutters sx={{ height:'100%',paddingX:{lg:'3%',md:0},  display:'flex',justifyContent:'space-between', alignItems:'center'}}>
        
@@ -75,10 +75,15 @@ const NavBar = ()=> {
               ))}
             </Menu>
           </Box>
-          <Typography sx={{display:{xs:'none',sm:'flex'},margin:0, fontSize:{lg:40,md:25}}}>LOGO</Typography>
+          <img src={logo} alt='Logo' height={120}/>
           
           <Box sx={{  display: { xs: 'none', md: 'flex' } }}>
-            <Link to='/' style={{textDecoration:'none', color:'inherit'}}>
+          <NavLink
+            exact
+            to="/"
+            activeClassName="active"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
               <Typography
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
@@ -88,9 +93,14 @@ const NavBar = ()=> {
               >
                  HOME
               </Typography>
-              </Link>
+              </NavLink>
              
-            <Link to='/aboutus' style={{textDecoration:'none', color:'inherit'}}>
+              <NavLink
+            exact
+            to="/aboutus"
+            activeClassName="active"
+            style={{ textDecoration: 'none' }}
+          >
               <Typography
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
@@ -100,9 +110,14 @@ const NavBar = ()=> {
               >
                 ABOUT US
               </Typography>
-              </Link>
+              </NavLink>
              
-            <Link to='/ourprograms' style={{textDecoration:'none', color:'inherit'}}>
+              <NavLink
+            exact
+            to="/ourprograms"
+            activeClassName="active"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
               <Typography
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
@@ -112,11 +127,16 @@ const NavBar = ()=> {
               >
                OUR PROGRAMS
               </Typography>
-              </Link>
+              </NavLink>
              
           
              
-            <Link to='/contactus' style={{textDecoration:'none', color:'inherit'}}>
+              <NavLink
+            exact
+            to="/contactus"
+            activeClassName="active"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
               <Typography
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
@@ -126,10 +146,10 @@ const NavBar = ()=> {
               >
                 CONTACT US
               </Typography>
-              </Link>
+              </NavLink>
            
           </Box>
-          <Link to='/donate' sx={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100}, height:{md:50,sm:40}}}>Donate</Button></Link>
+          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100}, height:{md:50,sm:40}}}>Donate Now</Button></Link>
 
         </Toolbar>
    

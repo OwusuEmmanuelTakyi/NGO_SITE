@@ -7,10 +7,6 @@ import HeroSection from '../Components/HeroSection';
 
 const ContactForm = () => {
   return (
-
-
-   
-
    
     <div className="contact-form-container">
        
@@ -85,7 +81,7 @@ const ContactMap = () => {
 };
 
 const Contact = () => {
-  const title = 'CONTACT US'
+  const title = "LET'S GET IN TOUCH" 
   return (
     <>
     <HeroSection title={title}/>

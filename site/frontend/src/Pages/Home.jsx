@@ -5,6 +5,8 @@ import ProgramsText from '../Components/ProgramsText'
 import Programs from '../Components/Programs'
 import LastSection from '../Components/LastSection'
 
+
+
 const Home = () => {
   const title = 'Welcome to the AMA YEDUAH FOUNDATION'
   const description = 'Empowering Communities Through Education and Health Awareness'
