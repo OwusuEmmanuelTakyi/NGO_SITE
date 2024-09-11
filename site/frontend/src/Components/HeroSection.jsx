@@ -48,11 +48,11 @@ const HeroSection = ({title,description}) => {
         </Box>
       </Slider>
       <Box className="hero-text" sx={{ position: 'absolute', top: '40%', left: '10%',right:'10%', textAlign: 'center', color: 'white' }}>
-        <Typography variant="h3" color={grey[300]} fontWeight='700' sx={{fontSize:{xs:20,md:38}}}>{title}</Typography>
+        <Typography variant="h3" color={grey[300]} fontWeight='700' sx={{fontSize:{xs:28,sm:30,md:38}}}>{title}</Typography>
         <Typography variant="h6" color={grey[300]}>{description}</Typography>
 
         {isHomePage ? (
-             <Link to='/donate'><Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:10, paddingX:5}}>Get Involved</Button></Link>
+             <Link to='/donate'><Button variant='contained' sx={{color: 'white', backgroundColor:'green', fontSize:20, marginTop:{xs:5,sm:10}, paddingX:5}}>Get Involved</Button></Link>
         ) :(
             <Box sx={{display:'flex', flexDirection:'row', gap:2, fontSize:18,position: 'absolute', bottom: '-130%', left: '40%', textAlign: 'center', color: 'white'}}>
                <Link to='/'style={{ textDecoration: 'none' }}><Typography color='white' sx={{borderRight: '2px solid white', paddingRight:3 }} >HOME</Typography></Link>

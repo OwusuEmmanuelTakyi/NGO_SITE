@@ -3,7 +3,7 @@ import './About.css';
 import HeroSection from '../Components/HeroSection';
 
 const About = () => {
-  const title = 'ABOUT US'
+  const title = 'KNOW MORE ABOUT US'
   return (
     <>
     <HeroSection title={title}/>

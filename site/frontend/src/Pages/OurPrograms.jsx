@@ -14,6 +14,7 @@ const OurPrograms = () => {
       </Box>
       <ProgramsText/>
       <Programs/>
+      <Box sx={{width:'100%', height:150}}></Box>
       </div>
   )
 }

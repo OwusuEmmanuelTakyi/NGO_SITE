@@ -2,10 +2,11 @@ import React from 'react'
 import HeroSection from '../Components/HeroSection'
 
 const Donate = () => {
+  const title = 'SUPPORT US'
   return (
     <div>
-      <HeroSection/>
-      Donate
+      <HeroSection title={title}/>
+       Donate
       </div>
   )
 }

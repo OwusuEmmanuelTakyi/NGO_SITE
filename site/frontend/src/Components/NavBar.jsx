@@ -48,7 +48,8 @@ const NavBar = ()=> {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="black"
+
             >
               <MenuIcon />
             </IconButton>
@@ -66,17 +67,28 @@ const NavBar = ()=> {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
+              sx={{ display: { xs: 'block', md: 'none',width:'100%',display:'flex',flexDirection:'column',gap:3 } }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+              
+                <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}}    >
+                  <NavLink activeClassName='active' style={{textDecoration:'none', color:'inherit',padding:5, width:'100%'}} to='/'><Typography sx={{ textAlign: 'center' }}>HOME</Typography></NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='aboutus'><Typography sx={{ textAlign: 'center' }}>ABOUT US</Typography></NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='ourprograms'><Typography sx={{ textAlign: 'center' }}>OUR PROGRAMS</Typography></NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='contactus'><Typography sx={{ textAlign: 'center' }}>CONTACT US</Typography></NavLink>
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
+          <Link to='/'>
           <img src={logo} alt='Logo' height={120}/>
-          
+          </Link>
+
           <Box sx={{  display: { xs: 'none', md: 'flex' } }}>
           <NavLink
             exact
@@ -88,7 +100,7 @@ const NavBar = ()=> {
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
                   transitionDelay:'0.1s'},
-                 display: 'block',fontSize:{lg:20,md:18},
+                 display: 'block',fontSize:{lg:20,md:16},
                  marginX:{lg:2,md:1} }}
               >
                  HOME
@@ -105,7 +117,7 @@ const NavBar = ()=> {
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
                   transitionDelay:'0.1s'},
-                 display: 'block',fontSize:{lg:20,md:18},
+                 display: 'block',fontSize:{lg:20,md:16},
                  marginX:{lg:2,md:1} }}
               >
                 ABOUT US
@@ -122,7 +134,7 @@ const NavBar = ()=> {
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
                   transitionDelay:'0.1s'},
-                 display: 'block',fontSize:{lg:20,md:18},
+                 display: 'block',fontSize:{lg:20,md:16},
                  marginX:{lg:2,md:1} }}
               >
                OUR PROGRAMS
@@ -141,7 +153,7 @@ const NavBar = ()=> {
                 sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
                   transitionDuration:'0.5s', 
                   transitionDelay:'0.1s'},
-                 display: 'block',fontSize:{lg:20,md:18},
+                 display: 'block',fontSize:{lg:20,md:16},
                  marginX:{lg:2,md:1} }}
               >
                 CONTACT US
@@ -149,7 +161,7 @@ const NavBar = ()=> {
               </NavLink>
            
           </Box>
-          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100}, height:{md:50,sm:40}}}>Donate Now</Button></Link>
+          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
 
         </Toolbar>
    
