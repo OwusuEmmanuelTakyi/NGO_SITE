@@ -1,9 +1,19 @@
 import React from 'react';
 import './About.css';
 import HeroSection from '../Components/HeroSection';
+import Leaders from '../Components/Leaders';
+import { Box } from '@mui/material';
+import lady1 from '../images/lady1.jpg'
+import lady2 from '../images/lady2.jpg'
+import man1 from '../images/man1.jpg'
+
 
 const About = () => {
   const title = 'KNOW MORE ABOUT US'
+  const LearnMoreTitle = 'Patience Ama Yeduah Eshun'
+ 
+
+
   return (
     <>
     <HeroSection title={title}/>
@@ -34,15 +44,23 @@ const About = () => {
           <li><strong>Compassion:</strong> Approaching all efforts with empathy and care for those in need.</li>
         </ul>
 
-        <h2>Leadership Team</h2>
-        <p><strong>Patience Ama Yeduah Eshun:</strong> Founder and President, providing visionary leadership and overseeing operations.</p>
-        <p><strong>Deana Robyn Bertram:</strong> Vice-President, assisting in executing the Foundation’s mission.</p>
-        <p><strong>Dana Rhiannon Bertram:</strong> Secretary, managing records, communications, and legal compliance for the Foundation.</p>
+        <h2>Founders and Beneficial Owners</h2>
 
-        <h2>Contact Information</h2>
-        <p><strong>Location:</strong> New Achimota, Eagle Street, ANT/AB/35, GE-362-3478, Accra, Ghana</p>
+        <Box sx={{width:'100%',height:50}}>
+
+        </Box>
+        <Box sx={{display:'flex', flexDirection:{md:'row',sm:'column',xs:'column'},width:'100%', justifyContent:'space-around',alignItems:'center'}}>
+      <Leaders image={lady1} name='Patience Ama Yeduah ' role='Founder and President'/>
+      <Leaders image={lady2} name='Deana Robyn Bertram' role='Vice-President'/>
+      <Leaders image={man1} name='Dana Rhiannon Bertram' role='Secretary' LearnMoreTitle={LearnMoreTitle} learnMoreInfo='TIN/BO ID: P0007851014'/>
+
+     
+      </Box>
+       
       </section>
+    
     </div>
+   
     </>
   );
 };

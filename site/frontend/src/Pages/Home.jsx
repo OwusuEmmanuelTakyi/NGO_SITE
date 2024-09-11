@@ -16,7 +16,7 @@ const Home = () => {
       <HeroSection title={title} description={description}/>
         <HomeTextSection/>
         <ProgramsText/>
-        <Programs/>
+     
         <LastSection/>
         
     </div>
