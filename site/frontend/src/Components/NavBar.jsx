@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const pages = ['HOME', 'ABOUT', 'OUR PROGRAMS' ,'GET INVOLVED', 'CONTACT US',];
+const pages = ['HOME', 'ABOUT', 'OUR PROGRAMS', 'CONTACT US',];
 
 
 const NavBar = ()=> {
@@ -114,17 +114,7 @@ const NavBar = ()=> {
               </Typography>
               </Link>
              
-            <Link to='/getinvolved' style={{textDecoration:'none', color:'inherit'}}>
-              <Typography
-                sx={{ ':hover':{cursor:'pointer', opacity:0.6, 
-                  transitionDuration:'0.5s', 
-                  transitionDelay:'0.1s'},
-                 display: 'block',fontSize:{lg:20,md:18},
-                 marginX:{lg:2,md:1} }}
-              >
-              GET INVOLVED
-              </Typography>
-              </Link>
+          
              
             <Link to='/contactus' style={{textDecoration:'none', color:'inherit'}}>
               <Typography

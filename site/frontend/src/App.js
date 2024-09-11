@@ -4,7 +4,6 @@ import AboutUs from './Pages/AboutUs';
 import OurPrograms from './Pages/OurPrograms';
 import ContactUs from './Pages/ContactUs';
 import Donate from './Pages/Donate';
-import GetInvolved from './Pages/GetInvolved';
 import ErrorPage from './Pages/ErrorPage';
 import './App.css'
 import NavBar from './Components/NavBar';
@@ -23,7 +22,6 @@ function App() {
           <Route path="/ourprograms" element={<OurPrograms />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/donate" element={<Donate />} />
-          <Route path="/getinvolved" element={<GetInvolved />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer/>

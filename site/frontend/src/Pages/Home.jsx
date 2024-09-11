@@ -3,6 +3,7 @@ import HeroSection from '../Components/HeroSection'
 import HomeTextSection from '../Components/HomeTextSection'
 import ProgramsText from '../Components/ProgramsText'
 import Programs from '../Components/Programs'
+import LastSection from '../Components/LastSection'
 
 const Home = () => {
   const title = 'Welcome to the AMA YEDUAH FOUNDATION'
@@ -14,6 +15,7 @@ const Home = () => {
         <HomeTextSection/>
         <ProgramsText/>
         <Programs/>
+        <LastSection/>
         
     </div>
   )
