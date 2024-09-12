@@ -36,7 +36,9 @@ const Donate = () => {
       </Typography>
       <Typography variant="body1" paragraph>
         - Empower Change: Your donation helps us implement programs that directly benefit those in need.
+        <br/>
         - Sustainable Impact: Contributions support long-term projects that create lasting change.
+        <br/>
         - Community Growth: Your support fosters a stronger, more resilient community.
       </Typography>
 
@@ -67,11 +69,11 @@ const Donate = () => {
       <Typography variant="body1" paragraph>
        Bank Transfer: You can donate directly to our bank account.
        <br/>
-        Bank Name: ABSA Bank
+        Bank Name: <span style={{color:blue[300]}}>ABSA Bank</span> 
         <br/>
         Account Number: <span style={{color:blue[300]}}>123456789</span>
         <br/>
-          Branch: Accra Main
+          Branch:  <span style={{color:blue[300]}}>Accra Main</span>
       </Typography>
       </Box>
 
@@ -80,11 +82,11 @@ const Donate = () => {
       <Typography variant="body1" paragraph>
         Mobile Money: Donate via mobile money using the following details.
         <br/>
-        Network: MTN
+        Network:  <span style={{color:blue[300]}}>MTN</span>
         <br/>
         Mobile Money Number: <span style={{color:blue[300]}}>0241234567</span>
         <br/>
-        Reference: Donation
+        Reference: <span style={{color:blue[300]}}>Donation</span> 
       </Typography>
       </Box>
       </Box>

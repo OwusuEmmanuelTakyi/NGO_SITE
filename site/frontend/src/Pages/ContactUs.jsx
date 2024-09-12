@@ -1,8 +1,11 @@
 import React, { useRef, useState } from 'react';
 import './Contact.css';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import emailjs from '@emailjs/browser';
 import HeroSection from '../Components/HeroSection';
+import { Box } from '@mui/material';
+import 'leaflet/dist/leaflet.css';
+import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
 // Contact Form Component with EmailJS Integration
 const ContactForm = () => {
@@ -106,23 +109,24 @@ const ContactInfo = () => {
 
 // Google Map Section
 const ContactMap = () => {
-  const location = {
-    lat: 47.6588,  // Replace with your latitude
-    lng: -117.4260 // Replace with your longitude
-  };
+  const center = [5.6037, -0.1870];
 
   return (
-    <div className="map-container">
-      <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
-        <GoogleMap
-          mapContainerStyle={{ height: '400px', width: '100%' }}
-          zoom={12}
-          center={location}
-        >
-          <Marker position={location} />
-        </GoogleMap>
-      </LoadScript>
-    </div>
+    
+    <Box>
+       <MapContainer center={center} zoom={13} style={{ height: '400px', width: '100%' }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={center}>
+        <FmdGoodOutlinedIcon color='red'/>
+          <Popup>
+             Our NGO Location
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </Box>
   );
 };
 

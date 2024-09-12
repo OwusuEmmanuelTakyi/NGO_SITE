@@ -5,6 +5,7 @@ import ProgramsText from '../Components/ProgramsText'
 import Programs from '../Components/Programs'
 import LastSection from '../Components/LastSection'
 import News from './News'
+import { Box } from '@mui/material'
 
 
 const Home = () => {
@@ -15,8 +16,9 @@ const Home = () => {
     <div>
       <HeroSection title={title} description={description}/>
         <HomeTextSection/>
-        <ProgramsText/>
-        <Programs/>
+       
+        
+        <Box sx={{width:'100%', height:100,}}></Box>
         <News /> 
         <LastSection/>
         
