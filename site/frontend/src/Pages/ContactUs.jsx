@@ -1,40 +1,109 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
-//import Navbar from '../Components/NavBar'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import emailjs from '@emailjs/browser';
 import HeroSection from '../Components/HeroSection';
 
-
+// Contact Form Component with EmailJS Integration
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    user_name: '',
+    user_email: '',
+    message: '',
+  });
+
+  const [emailSent, setEmailSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Initialize EmailJS with your public key
+  React.useEffect(() => {
+    emailjs.init('VAvdLz3lmWrjHQjTR'); // Initialize EmailJS with your public key from EmailJS dashboard
+  }, []);
+
+  // Handle form input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Check if all fields are filled
+    if (!formData.user_name || !formData.user_email || !formData.message) {
+      setErrorMessage('Please fill out all fields before submitting.');
+      return;
+    }
+
+    // Send form data using emailjs.sendForm
+    emailjs
+      .sendForm('service_c1e0v2o', 'template_re4ubdv', e.target) // Replace with your service ID and template ID
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setEmailSent(true); // Set success flag
+          setErrorMessage(''); // Clear any previous error messages
+        },
+        (error) => {
+          console.log('FAILED...', error);
+          setErrorMessage('Failed to send message. Please try again later.');
+        }
+      );
+  };
+
   return (
-   
     <div className="contact-form-container">
-       
       <h2>Contact Us</h2>
-      <form className="contact-form">
-        <div className="form-group">
-          <label htmlFor="first-name">First Name</label>
-          <input type="text" id="first-name" placeholder="Your first name" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="last-name">Last Name</label>
-          <input type="text" id="last-name" placeholder="Your last name" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Your email address" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea id="message" rows="4" placeholder="Your message"></textarea>
-        </div>
-        <button type="submit" className="submit-btn">Submit</button>
-      </form>
+      {emailSent ? (
+        <p className="success-message">Thank you! Your message has been sent successfully.</p>
+      ) : (
+        <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="user_name">Name</label>
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Your name"
+              value={formData.user_name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="user_email">Email</label>
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Your email address"
+              value={formData.user_email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Your message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <button type="submit" className="submit-btn">Submit</button>
+        </form>
+      )}
     </div>
-    
   );
 };
 
+// Contact Information Section
 const ContactInfo = () => {
   return (
     <div className="contact-info-container">
@@ -54,11 +123,10 @@ const ContactInfo = () => {
         </div>
       </div>
     </div>
-    
-    
   );
 };
 
+// Google Map Section
 const ContactMap = () => {
   const location = {
     lat: 47.6588,  // Replace with your latitude
@@ -80,20 +148,21 @@ const ContactMap = () => {
   );
 };
 
+// Main Contact Page Component
 const Contact = () => {
-  const title = "LET'S GET IN TOUCH" 
+  const title = "LET'S GET IN TOUCH";
   return (
     <>
-    <HeroSection title={title}/>
-    <section className="contact-section">
-      <div className="form-section">
-        <ContactForm />
-      </div>
-      <div className="info-map-section">
-        <ContactInfo />
-        <ContactMap />
-      </div>
-    </section>
+      <HeroSection title={title} />
+      <section className="contact-section">
+        <div className="form-section">
+          <ContactForm />
+        </div>
+        <div className="info-map-section">
+          <ContactInfo />
+          <ContactMap />
+        </div>
+      </section>
     </>
   );
 };
