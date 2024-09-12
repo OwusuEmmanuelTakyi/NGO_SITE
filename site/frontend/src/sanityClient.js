@@ -1,7 +1,7 @@
 import sanityClient from '@sanity/client';
 
 export default sanityClient({
-  projectId: 'your-project-id', // find this in your Sanity Studio dashboard
+  projectId: '08lyf801', // find this in your Sanity Studio dashboard
   dataset: 'production', // or whatever dataset you are using
   apiVersion: '2023-09-06', // use the latest API version
   useCdn: true, // `false` if you want to ensure fresh data
