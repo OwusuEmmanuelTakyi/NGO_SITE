@@ -97,7 +97,7 @@ const ContactInfo = () => {
         </div>
         <div className="info-box">
           <span>Email</span>
-          <p>support@rocketvisa.com</p>
+          <p>amayeduahfoundation@gmail.com</p>
         </div>
       </div>
     </div>
@@ -107,8 +107,8 @@ const ContactInfo = () => {
 // Google Map Section
 const ContactMap = () => {
   const location = {
-    lat: 47.6588,  // Replace with your latitude
-    lng: -117.4260 // Replace with your longitude
+    lat: 5.637412,  // Replace with your latitude
+    lng: -0.236556 // Replace with your longitude
   };
 
   return (
