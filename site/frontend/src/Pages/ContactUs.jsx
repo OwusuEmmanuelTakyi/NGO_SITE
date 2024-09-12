@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Contact.css';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import emailjs from '@emailjs/browser';
@@ -6,50 +6,25 @@ import HeroSection from '../Components/HeroSection';
 
 // Contact Form Component with EmailJS Integration
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
-    message: '',
-  });
-
+  const form = useRef();  // UseRef for referencing the form
   const [emailSent, setEmailSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Initialize EmailJS with your public key
-  React.useEffect(() => {
-    emailjs.init('VAvdLz3lmWrjHQjTR'); // Initialize EmailJS with your public key from EmailJS dashboard
-  }, []);
-
-  // Handle form input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
+  // Send email function using EmailJS
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled
-    if (!formData.user_name || !formData.user_email || !formData.message) {
-      setErrorMessage('Please fill out all fields before submitting.');
-      return;
-    }
-
-    // Send form data using emailjs.sendForm
+    // Send form data using emailjs
     emailjs
-      .sendForm('service_c1e0v2o', 'template_re4ubdv', e.target) // Replace with your service ID and template ID
+      .sendForm('service_c1e0v2o', 'template_rgay28v', form.current, '_KgdCNEIkBvL8WDrV')
       .then(
-        (response) => {
-          console.log('SUCCESS!', response.status, response.text);
-          setEmailSent(true); // Set success flag
-          setErrorMessage(''); // Clear any previous error messages
+        (result) => {
+          console.log('SUCCESS!', result.text);
+          setEmailSent(true);  // Set success flag
+          setErrorMessage('');  // Clear any previous error messages
         },
         (error) => {
-          console.log('FAILED...', error);
+          console.log('FAILED...', error.text);
           setErrorMessage('Failed to send message. Please try again later.');
         }
       );
@@ -61,37 +36,40 @@ const ContactForm = () => {
       {emailSent ? (
         <p className="success-message">Thank you! Your message has been sent successfully.</p>
       ) : (
-        <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="form-group">
-            <label htmlFor="user_name">Name</label>
+            <label htmlFor="first_name">First Name</label>
             <input
               type="text"
-              name="user_name"
-              placeholder="Your name"
-              value={formData.user_name}
-              onChange={handleChange}
+              name="first_name"  // Matches the {{first_name}} placeholder in the template
+              placeholder="Your first name"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="user_email">Email</label>
+            <label htmlFor="last_name">Last Name</label>
+            <input
+              type="text"
+              name="last_name"  // Matches the {{last_name}} placeholder in the template
+              placeholder="Your last name"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
             <input
               type="email"
-              name="user_email"
+              name="email"  // Matches the {{email}} placeholder in the template
               placeholder="Your email address"
-              value={formData.user_email}
-              onChange={handleChange}
               required
             />
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
             <textarea
-              name="message"
+              name="message"  // Matches the {{message}} placeholder in the template
               rows="4"
               placeholder="Your message"
-              value={formData.message}
-              onChange={handleChange}
               required
             ></textarea>
           </div>
