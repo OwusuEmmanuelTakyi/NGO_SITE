@@ -4,7 +4,7 @@ import HomeTextSection from '../Components/HomeTextSection'
 import ProgramsText from '../Components/ProgramsText'
 import Programs from '../Components/Programs'
 import LastSection from '../Components/LastSection'
-
+import News from './News'
 
 
 const Home = () => {
@@ -16,7 +16,8 @@ const Home = () => {
       <HeroSection title={title} description={description}/>
         <HomeTextSection/>
         <ProgramsText/>
-     
+        <Programs/>
+        <News /> 
         <LastSection/>
         
     </div>
