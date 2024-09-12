@@ -13,14 +13,17 @@ import useScrollDirection from './useScrollDirection'
 import { NavLink, Link } from 'react-router-dom';
 import './NavBar.css'
 import logo from '../images/LOGO.png'
+import { useMediaQuery } from '@mui/material';
 
 
-const pages = ['HOME', 'ABOUT', 'OUR PROGRAMS', 'CONTACT US',];
+
 
 
 const NavBar = ()=> {
 
   const scrollDirection = useScrollDirection();
+  const isSmallScreen = useMediaQuery('(max-width:430px)')
+  const isBigScreen = useMediaQuery('(min-width:430px)')
 
 
 
@@ -41,7 +44,7 @@ const NavBar = ()=> {
         <Toolbar disableGutters sx={{ height:'100%',paddingX:{lg:'3%',md:0},  display:'flex',justifyContent:'space-between', alignItems:'center'}}>
        
           
-        <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none',lg:'none' } }}>
+        <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none',lg:'none' }, width:'100%'}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -67,9 +70,13 @@ const NavBar = ()=> {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none',width:'100%',display:'flex',flexDirection:'column',gap:3 } }}
+              sx={{ display: { width:'50vw',xs: 'block', md: 'none',display:'flex',flexDirection:'column',gap:3 }, paddingX:'20%' }}
             >
-              
+                      {isSmallScreen && (
+                  <Link to='/'>
+                  <img src={logo} alt='Logo' width={130}/>
+                  </Link>
+                )}
                 <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}}    >
                   <NavLink activeClassName='active' style={{textDecoration:'none', color:'inherit',padding:5, width:'100%'}} to='/'><Typography sx={{ textAlign: 'center' }}>HOME</Typography></NavLink>
                   </MenuItem>
@@ -85,9 +92,13 @@ const NavBar = ()=> {
               
             </Menu>
           </Box>
+         {isBigScreen   && (
           <Link to='/'>
-          <img src={logo} alt='Logo' height={120}/>
+          <img src={logo} alt='Logo' width={160}/>
           </Link>
+         )}
+          
+         
 
           <Box sx={{  display: { xs: 'none', md: 'flex' } }}>
           <NavLink
@@ -161,7 +172,7 @@ const NavBar = ()=> {
               </NavLink>
            
           </Box>
-          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
+          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:10,sm:12,md:15,lg:18},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
 
         </Toolbar>
    
