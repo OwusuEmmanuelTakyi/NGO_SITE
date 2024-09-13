@@ -1,31 +1,33 @@
+import React from 'react';
+import { Card, CardContent, Typography, Avatar, Box } from '@mui/material';
+import { grey } from '@mui/material/colors';
 
-import React from 'react'
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { blue } from '@mui/material/colors';
-
-const LittleCard = ({testimonial, name,avatar}) => {
+const LittleCard = ({ name, testimonial, avatar }) => {
   return (
-   <Box>
-      <Card sx={{ minWidth: 275 , position:'relative', overflow:'visible'}}>
-        <Box sx={{width:100, height:100, borderRadius:'50%', overflow:'hidden', position:'absolute', top:-20, left:'30%'}}>
-        <img src={avatar} style={{width:'100%', height:'100%', borderRadius:'50%'}} />
+    <Card sx={{ maxWidth: 345, borderRadius: 2, boxShadow: 3 }}>
+      <CardContent>
+        <Box display="flex" alignItems="center" mb={2}>
+          <Avatar
+            alt={name}
+            src={avatar}
+            sx={{
+              width: 80,
+              height: 80,
+              borderRadius: '50%',
+              mr: 2,
+              backgroundColor: grey[300],
+            }}
+          />
+          <Typography variant="h6" component="div">
+            {name}
+          </Typography>
         </Box>
-       
-      <CardContent sx={{paddingTop:15, px:'10%'}}>
-        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-        {testimonial}
+        <Typography variant="body2" color="text.secondary">
+          {testimonial}
         </Typography>
-
-        <Typography sx={{color:blue[300], fontWeight:'bold', textAlign:'right'}}>{name}</Typography>
-      
       </CardContent>
-      
     </Card>
-   </Box>
-  )
-}
+  );
+};
 
-export default LittleCard
+export default LittleCard;
