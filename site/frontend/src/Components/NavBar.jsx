@@ -172,7 +172,7 @@ const NavBar = ()=> {
               </NavLink>
            
           </Box>
-          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:10,sm:12,md:15,lg:18},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
+          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
 
         </Toolbar>
    

@@ -100,14 +100,14 @@ const ContactInfo = () => {
         </div>
         <div className="info-box">
           <span>Email</span>
-          <p>support@rocketvisa.com</p>
+          <p>amayeduahfoundation@gmail.com</p>
         </div>
       </div>
     </div>
   );
 };
 
-// Google Map Section
+
 const ContactMap = () => {
   const center = [5.6037, -0.1870];
 
