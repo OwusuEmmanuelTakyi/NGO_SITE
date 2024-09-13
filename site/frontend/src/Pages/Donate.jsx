@@ -1,118 +1,248 @@
-import React from 'react'
-import HeroSection from '../Components/HeroSection'
-import { Container, Typography, Grid,  Box, LinearProgress, Divider } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import HeroSection from '../Components/HeroSection';
+import { Container, Typography, Grid, Box, LinearProgress, Divider } from '@mui/material';
 import LittleCard from '../Components/LittleCard';
-import image1 from '../images/lady1.jpg'
-import image2 from '../images/lady2.jpg'
-import image3 from '../images/man1.jpg'
-import image4 from '../images/lady3.jpg'
-import { blue } from '@mui/material/colors';
+import { blue, grey } from '@mui/material/colors';
+import sanityClient from '../sanityClient'; // Adjust path as needed
 
 const Donate = () => {
-  const title = 'SUPPORT US'
-  const name1 = 'Amina Aliatu, 19'
-  const name2 = 'Hafiz Mohammed, 21'
-  const name3 = 'Nknansah, 17'
-  const name4 = '  Esi, 32'
-  const test1 = '“The support I received for my education has changed my life. I am now the first girl in my family to attend university. This opportunity has opened doors I never thought possible, and I am determined to give back to my community.”'
-  const test2 = '“The counseling and support services helped me find the strength to leave an abusive relationship. I am now rebuilding my life with confidence and hope for a brighter future. I am forever grateful for the support I received.”'
-  const test3 = ' “The youth abuse awareness programs taught me how to recognize and report abuse. I feel safer and more empowered to speak up for myself and others. This has made a huge difference in my life and the lives of my friends.”'
-  const test4 = ' “The youth abuse awareness programs taught me how to recognize and report abuse. I feel safer and more empowered to speak up for myself and others. This has made a huge difference in my life and the lives of my friends.”'
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const title = 'SUPPORT US';
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      const query = `*[_type == "testimonial"]{
+        name,
+        testimonial,
+        "imageUrl": image.asset->url
+      }`;
+      try {
+        const data = await sanityClient.fetch(query);
+        setTestimonials(data);
+      } catch (err) {
+        console.error('Failed to fetch testimonials:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
 
   return (
     <div>
-      <HeroSection title={title}/>
-       
+      <HeroSection title={title} />
+      
       <Container>
-      <Typography variant="h2" gutterBottom fontSize={38} marginTop={10} mb={5} >
-        Support Us
-      </Typography>
-      <Typography variant="body1" paragraph >
-        Your support is crucial to our mission. By donating, you help us continue our programs and make a lasting impact in our community. Every contribution, no matter the size, brings us closer to our goals.
-      </Typography>
-
-      <Typography variant="h4" gutterBottom fontSize={38} marginTop={5}>
-        Why Donate?
-      </Typography>
-      <Typography variant="body1" paragraph>
-        - Empower Change: Your donation helps us implement programs that directly benefit those in need.
-        <br/>
-        - Sustainable Impact: Contributions support long-term projects that create lasting change.
-        <br/>
-        - Community Growth: Your support fosters a stronger, more resilient community.
-      </Typography>
-
-      <Typography variant="h4" gutterBottom fontSize={38} marginTop={8} mb={8}>
-        How Your Donation Helps
-      </Typography>
-      <Grid container spacing={3} flexWrap='wrap'>
-        <Grid item xs={12} sm={6} md={3} mb={2}>
-          <LittleCard name={name1} testimonial={test1} avatar={image1}/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3} mb={5}>
-        <LittleCard name={name2} testimonial={test2} avatar={image2}/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-        <LittleCard name={name3} testimonial={test3} avatar={image3}/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-        <LittleCard name={name4} testimonial={test4} avatar={image4}/>
-        </Grid>
-      </Grid>
-
-      <Typography variant="h4" gutterBottom mt={8}>
-        Ways to Give
-      </Typography>
-      <Box sx={{display:'flex', flexDirection:{md:'row',xs:'column',sm:'column'}, width:'80%', gap:3,justifyContent:'center'}}>
-
-     <Box>
-      <Typography variant="body1" paragraph>
-       Bank Transfer: You can donate directly to our bank account.
-       <br/>
-        Bank Name: <span style={{color:blue[300]}}>CAL BANK PLC</span> 
-        <br/>
-        Account Number "GHC": <span style={{color:blue[300]}}>1400008976033</span>
-        <br/>
-        Account Number "USD": <span style={{color:blue[300]}}>1400008976106</span>
-        <br/>
-        Account Name: <span style={{color:blue[300]}}>AMA YEDUAH FOUNDATION LBG</span>
-        <br/>
-          Branch:  <span style={{color:blue[300]}}>SPINTEX ROAD BRANCH</span>
-      </Typography>
-      </Box>
-
-      <Divider/>
-      <Box>
-      <Typography variant="body1" paragraph>
-        Mobile Money: Donate via mobile money using the following details.
-        <br/>
-        Network:  <span style={{color:blue[300]}}>MTN</span>
-        <br/>
-        Mobile Money Number: <span style={{color:blue[300]}}>*************</span>
-        <br/>
-        Reference: <span style={{color:blue[300]}}>Donation</span> 
-      </Typography>
-      </Box>
-      </Box>
-
-      <Box my={4}>
-        <Typography variant="h4" gutterBottom>
-          Fundraising Progress
+        <Typography
+          variant="h2"
+          gutterBottom
+          sx={{
+            fontSize: '3rem',
+            fontWeight: 'bold',
+            color: blue[800],
+            textAlign: 'center',
+            marginTop: 10,
+            marginBottom: 5,
+            textTransform: 'uppercase',
+            letterSpacing: 2,
+            '&:hover': {
+              color: blue[600],
+              textDecoration: 'underline',
+            },
+            transition: 'color 0.3s ease, text-decoration 0.3s ease',
+          }}
+        >
+          Support Us
         </Typography>
-        <LinearProgress variant="determinate" value={40} />
-        <Typography variant="body2" color="textSecondary">40% of our goal reached</Typography>
-      </Box>
+        
+        <Typography
+          variant="body1"
+          paragraph
+          sx={{ fontSize: '1.2rem', lineHeight: 1.6, color: grey[800] }}
+        >
+          Your support is crucial to our mission. By donating, you help us continue our programs and make a lasting impact in our community. Every contribution, no matter the size, brings us closer to our goals.
+        </Typography>
 
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{
+            fontSize: '2.5rem',
+            fontWeight: '600',
+            color: blue[700],
+            marginTop: 5,
+            textTransform: 'uppercase',
+            letterSpacing: 1,
+            '&:hover': {
+              color: blue[500],
+              textDecoration: 'underline',
+            },
+            transition: 'color 0.3s ease, text-decoration 0.3s ease',
+          }}
+        >
+          Why Donate?
+        </Typography>
+        <Typography
+          variant="body1"
+          paragraph
+          sx={{ fontSize: '1.1rem', lineHeight: 1.6, color: grey[700] }}
+        >
+          - Empower Change: Your donation helps us implement programs that directly benefit those in need.
+          <br />
+          - Sustainable Impact: Contributions support long-term projects that create lasting change.
+          <br />
+          - Community Growth: Your support fosters a stronger, more resilient community.
+        </Typography>
 
-      <Typography variant="h4" gutterBottom>
-        Thank You!
-      </Typography>
-      <Typography variant="body1" paragraph>
-        We are deeply grateful for your support. Together, we can make a difference.
-      </Typography>
-    </Container>
-      </div>
-  )
-}
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{
+            fontSize: '2.5rem',
+            fontWeight: '600',
+            color: blue[700],
+            marginTop: 8,
+            marginBottom: 8,
+            textTransform: 'uppercase',
+            letterSpacing: 1,
+            '&:hover': {
+              color: blue[500],
+              textDecoration: 'underline',
+            },
+            transition: 'color 0.3s ease, text-decoration 0.3s ease',
+          }}
+        >
+          How Your Donation Helps
+        </Typography>
+        {loading ? (
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{ fontSize: '1.2rem', color: grey[600] }}
+          >
+            Loading reviews...
+          </Typography>
+        ) : (
+          <Grid container spacing={3} flexWrap='wrap'>
+            {testimonials.length > 0 ? (
+              testimonials.map((test, index) => (
+                <Grid item xs={12} sm={6} md={3} mb={2} key={index}>
+                  <LittleCard
+                    name={test.name}
+                    testimonial={test.testimonial}
+                    avatar={test.imageUrl} // Pass image URL to LittleCard
+                  />
+                </Grid>
+              ))
+            ) : (
+              <Typography
+                variant="body1"
+                align="center"
+                sx={{ fontSize: '1.2rem', color: grey[600] }}
+              >
+                No reviews available.
+              </Typography>
+            )}
+          </Grid>
+        )}
 
-export default Donate
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{
+            fontSize: '2.5rem',
+            fontWeight: '600',
+            color: blue[700],
+            marginTop: 8,
+          }}
+        >
+          Ways to Give
+        </Typography>
+        <Box sx={{display:'flex', flexDirection:{md:'row',xs:'column',sm:'column'}, width:'80%', gap:3,justifyContent:'center'}}>
+          <Box>
+            <Typography
+              variant="body1"
+              paragraph
+              sx={{ fontSize: '1.1rem', lineHeight: 1.6, color: grey[700] }}
+            >
+              Bank Transfer: You can donate directly to our bank account.
+              <br />
+              Bank Name: <span style={{color:blue[300]}}>CAL BANK PLC</span>
+              <br />
+              Account Number "GHC": <span style={{color:blue[300]}}>1400008976033</span>
+              <br />
+              Account Number "USD": <span style={{color:blue[300]}}>1400008976106</span>
+              <br />
+              Account Name: <span style={{color:blue[300]}}>AMA YEDUAH FOUNDATION LBG</span>
+              <br />
+              Branch: <span style={{color:blue[300]}}>SPINTEX ROAD BRANCH</span>
+            </Typography>
+          </Box>
+
+          <Divider />
+
+          <Box>
+            <Typography
+              variant="body1"
+              paragraph
+              sx={{ fontSize: '1.1rem', lineHeight: 1.6, color: grey[700] }}
+            >
+              Mobile Money: Donate via mobile money using the following details.
+              <br />
+              Network: <span style={{color:blue[300]}}>MTN</span>
+              <br />
+              Mobile Money Number: <span style={{color:blue[300]}}>*************</span>
+              <br />
+              Reference: <span style={{color:blue[300]}}>Donation</span>
+            </Typography>
+          </Box>
+        </Box>
+
+        <Box my={4}>
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{
+              fontSize: '2.5rem',
+              fontWeight: '600',
+              color: blue[700],
+            }}
+          >
+            Fundraising Progress
+          </Typography>
+          <LinearProgress variant="determinate" value={40} />
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            sx={{ fontSize: '1.1rem', marginTop: 1 }}
+          >
+            40% of our goal reached
+          </Typography>
+        </Box>
+
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{
+            fontSize: '2.5rem',
+            fontWeight: '600',
+            color: blue[700],
+          }}
+        >
+          Thank You!
+        </Typography>
+        <Typography
+          variant="body1"
+          paragraph
+          sx={{ fontSize: '1.2rem', lineHeight: 1.6, color: grey[800] }}
+        >
+          We are deeply grateful for your support. Together, we can make a difference.
+        </Typography>
+      </Container>
+    </div>
+  );
+};
+
+export default Donate;
