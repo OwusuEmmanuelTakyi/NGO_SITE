@@ -111,7 +111,7 @@ const HeroSection = ({ title, description }) => {
         </Typography>
 
         {isHomePage ? (
-          <Link to="/donate">
+          <Link to="/support-us">
             <Button variant="contained" sx={{ color: 'white', backgroundColor: 'green', fontSize: 20, marginTop: { xs: 5, sm: 10 }, paddingX: 5 }}>
               Get Involved
             </Button>

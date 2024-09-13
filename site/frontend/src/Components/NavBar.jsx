@@ -120,7 +120,7 @@ const NavBar = ()=> {
              
               <NavLink
             exact
-            to="/aboutus"
+            to="/about-us"
             activeClassName="active"
             style={{ textDecoration: 'none' }}
           >
@@ -137,7 +137,7 @@ const NavBar = ()=> {
              
               <NavLink
             exact
-            to="/ourprograms"
+            to="/news-and-updates"
             activeClassName="active"
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
@@ -148,7 +148,7 @@ const NavBar = ()=> {
                  display: 'block',fontSize:{lg:20,md:16},
                  marginX:{lg:2,md:1} }}
               >
-               OUR PROGRAMS
+               NEWS & UPDATES
               </Typography>
               </NavLink>
              
@@ -156,7 +156,7 @@ const NavBar = ()=> {
              
               <NavLink
             exact
-            to="/contactus"
+            to="/contact-us"
             activeClassName="active"
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
@@ -172,7 +172,7 @@ const NavBar = ()=> {
               </NavLink>
            
           </Box>
-          <Link to='/donate' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
+          <Link to='/support-us' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
 
         </Toolbar>
    
