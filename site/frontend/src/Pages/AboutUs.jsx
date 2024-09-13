@@ -12,6 +12,8 @@ import man1 from '../images/man1.jpg'
 const About = () => {
   const title = 'KNOW MORE ABOUT US'
   const LearnMoreTitle = 'Patience Ama Yeduah Eshun'
+
+                                    
  
 
 
@@ -51,7 +53,13 @@ const About = () => {
 
         </Box>
         <Box sx={{display:'flex', flexDirection:{md:'row',sm:'column',xs:'column'},width:'100%', justifyContent:'space-around',alignItems:'center'}}>
-      <Leaders image={lady1} name='Patience Ama Yeduah ' role='Founder and President'/>
+      <Leaders image={lady1} name='Patience Ama Yeduah ' role='Founder and President' learnMoreInfo={(<div>   TIN/BO ID: P0007851014 <br/>
+                                                                                                            Nationality: Ghanaian <br/>
+                                                                                                            Principal Place of Business: D16, ACCRA, GREATER ACCRA,<br/> Ghana
+                                                                                                            Voting Rights - Direct: 20.00%<br/>
+                                                                                                            Right to Appoint or Remove Directors: 20.00%<br/>
+                                                                                                            Role: Founder and President, responsible for providing visionary leadership, representing the 
+                                                                                                              Foundation, and overseeing all operations. </div>)}/>
       <Leaders image={lady2} name='Emmanuel Coffie' role='Treasurer'/>
       <Leaders image={man1} name='Patrick Worae' role='Administrator' LearnMoreTitle={LearnMoreTitle} learnMoreInfo='TIN/BO ID: P0007851014'/>
 

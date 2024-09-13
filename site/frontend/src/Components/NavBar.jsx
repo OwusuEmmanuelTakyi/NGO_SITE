@@ -81,13 +81,13 @@ const NavBar = ()=> {
                   <NavLink activeClassName='active' style={{textDecoration:'none', color:'inherit',padding:5, width:'100%'}} to='/'><Typography sx={{ textAlign: 'center' }}>HOME</Typography></NavLink>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
-                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='aboutus'><Typography sx={{ textAlign: 'center' }}>ABOUT US</Typography></NavLink>
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='about-us'><Typography sx={{ textAlign: 'center' }}>ABOUT US</Typography></NavLink>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
-                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='ourprograms'><Typography sx={{ textAlign: 'center' }}>OUR PROGRAMS</Typography></NavLink>
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='/news-and-updates'><Typography sx={{ textAlign: 'center' }}>OUR PROGRAMS</Typography></NavLink>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
-                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='contactus'><Typography sx={{ textAlign: 'center' }}>CONTACT US</Typography></NavLink>
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='contact-us'><Typography sx={{ textAlign: 'center' }}>CONTACT US</Typography></NavLink>
                 </MenuItem>
               
             </Menu>

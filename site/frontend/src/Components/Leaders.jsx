@@ -23,7 +23,7 @@ const style = {
     p: 4,
   };
 
-const Leaders = ({image,alt,name,role}) => {
+const Leaders = ({image,alt,name,role, learnMoreInfo}) => {
 
     const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -66,13 +66,7 @@ const Leaders = ({image,alt,name,role}) => {
           Patience Ama Yeduah Eshun
           </Typography>
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          TIN/BO ID: P0007851014 <br/>
-Nationality: Ghanaian <br/>
-Principal Place of Business: D16, ACCRA, GREATER ACCRA,<br/> Ghana
-Voting Rights - Direct: 20.00%<br/>
-Right to Appoint or Remove Directors: 20.00%<br/>
-Role: Founder and President, responsible for providing visionary leadership, representing the 
-Foundation, and overseeing all operations. 
+              {learnMoreInfo}
           </Typography>
         </Box>
       </Modal>
