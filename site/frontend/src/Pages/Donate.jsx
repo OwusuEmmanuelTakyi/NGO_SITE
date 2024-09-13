@@ -69,11 +69,15 @@ const Donate = () => {
       <Typography variant="body1" paragraph>
        Bank Transfer: You can donate directly to our bank account.
        <br/>
-        Bank Name: <span style={{color:blue[300]}}>ABSA Bank</span> 
+        Bank Name: <span style={{color:blue[300]}}>CAL BANK PLC</span> 
         <br/>
-        Account Number: <span style={{color:blue[300]}}>123456789</span>
+        Account Number "GHC": <span style={{color:blue[300]}}>1400008976033</span>
         <br/>
-          Branch:  <span style={{color:blue[300]}}>Accra Main</span>
+        Account Number "USD": <span style={{color:blue[300]}}>1400008976106</span>
+        <br/>
+        Account Name: <span style={{color:blue[300]}}>AMA YEDUAH FOUNDATION LBG</span>
+        <br/>
+          Branch:  <span style={{color:blue[300]}}>SPINTEX ROAD BRANCH</span>
       </Typography>
       </Box>
 
@@ -84,7 +88,7 @@ const Donate = () => {
         <br/>
         Network:  <span style={{color:blue[300]}}>MTN</span>
         <br/>
-        Mobile Money Number: <span style={{color:blue[300]}}>0241234567</span>
+        Mobile Money Number: <span style={{color:blue[300]}}>*************</span>
         <br/>
         Reference: <span style={{color:blue[300]}}>Donation</span> 
       </Typography>

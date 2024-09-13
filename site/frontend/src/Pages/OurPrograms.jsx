@@ -16,6 +16,7 @@ const OurPrograms = () => {
       </Box>
       <ProgramsText/>
       <Programs/>
+      <News/>
       <Box sx={{width:'100%', height:150}}>
         
       </Box>

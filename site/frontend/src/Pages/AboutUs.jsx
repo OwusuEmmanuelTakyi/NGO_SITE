@@ -8,6 +8,7 @@ import lady2 from '../images/lady2.jpg'
 import man1 from '../images/man1.jpg'
 
 
+
 const About = () => {
   const title = 'KNOW MORE ABOUT US'
   const LearnMoreTitle = 'Patience Ama Yeduah Eshun'
@@ -51,13 +52,14 @@ const About = () => {
         </Box>
         <Box sx={{display:'flex', flexDirection:{md:'row',sm:'column',xs:'column'},width:'100%', justifyContent:'space-around',alignItems:'center'}}>
       <Leaders image={lady1} name='Patience Ama Yeduah ' role='Founder and President'/>
-      <Leaders image={lady2} name='Deana Robyn Bertram' role='Vice-President'/>
-      <Leaders image={man1} name='Dana Rhiannon Bertram' role='Secretary' LearnMoreTitle={LearnMoreTitle} learnMoreInfo='TIN/BO ID: P0007851014'/>
+      <Leaders image={lady2} name='Emmanuel Coffie' role='Treasurer'/>
+      <Leaders image={man1} name='Patrick Worae' role='Administrator' LearnMoreTitle={LearnMoreTitle} learnMoreInfo='TIN/BO ID: P0007851014'/>
 
      
       </Box>
        
       </section>
+      
     
     </div>
    
