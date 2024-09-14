@@ -1,8 +1,7 @@
 import React from 'react'
 import HeroSection from '../Components/HeroSection'
 import HomeTextSection from '../Components/HomeTextSection'
-import ProgramsText from '../Components/ProgramsText'
-import Programs from '../Components/Programs'
+
 import LastSection from '../Components/LastSection'
 import News from './News'
 import { Box } from '@mui/material'
