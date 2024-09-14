@@ -4,7 +4,6 @@ import { Box, Divider, Grid, Typography } from '@mui/material';
 import NewsCard from '../Components/NewsCard';
 import image1 from '../images/lady1.jpg';
 
-
 const News = () => {
   const [postData, setPostData] = useState([]);
 
@@ -35,15 +34,16 @@ const News = () => {
       )
       .then((data) => setPostData(data))
       .catch(console.error);
-  }, []);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);  // Empty dependency array ensures this runs only on mount
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: { md: 'row', sm: 'column', xs: 'column' }, gap: 10, width: '100%', justifyContent: { md: 'space-around', lg: 'center', sm: 'space-around', xs: 'space-around' }, paddingX: { xs: '10%', md: '5%' } ,mb:'10'}}>
+    <Box sx={{ display: 'flex', flexDirection: { md: 'row', sm: 'column', xs: 'column' }, gap: 10, width: '100%', justifyContent: { md: 'space-around', lg: 'center', sm: 'space-around', xs: 'space-around' }, paddingX: { xs: '10%', md: '5%' }, mb: '10' }}>
       <Box>
-        <Typography variant="h5" component="div" textAlign='center' fontWeight={600} mb={4}>Recent Posts</Typography>
-       
+        <Typography variant="h5" component="div" textAlign="center" fontWeight={600} mb={4}>Recent Posts</Typography>
       </Box>
-      <Divider orientation='vertical' flexItem />
+      <Divider orientation="vertical" flexItem />
       <Grid container spacing={2} sx={{ width: '100%' }}>
         {postData.map((post, index) => (
           <Grid item xs={12} sm={6} md={6} key={index}>
@@ -51,7 +51,8 @@ const News = () => {
               imageSrc={post.mainImage?.asset?.url || image1}
               title={post.title}
               description={post.body[0]?.children[0]?.text}
-              newsId={post._id} post={post}
+              newsId={post._id}
+              post={post}
             />
           </Grid>
         ))}
