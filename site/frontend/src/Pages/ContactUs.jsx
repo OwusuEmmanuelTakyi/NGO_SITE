@@ -92,11 +92,11 @@ const ContactInfo = () => {
       <div className="contact-info-boxes">
         <div className="info-box">
           <span>Location</span>
-          <p>3375 Sun Valley Road, Spokane, WA</p>
+          <p>eagl street </p>
         </div>
         <div className="info-box">
           <span>Phone</span>
-          <p>1 (123) 123 1234</p>
+          <p>*2323253453445</p>
         </div>
         <div className="info-box">
           <span>Email</span>
