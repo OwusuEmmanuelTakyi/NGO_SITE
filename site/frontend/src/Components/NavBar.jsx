@@ -38,7 +38,7 @@ const NavBar = ()=> {
   };
  
   return (
-    <AppBar position="sticky" sx={{height:150, backgroundColor:'white', color:'darkgoldenrod', transform: scrollDirection === 'down' ? 'translateY(-100%)' : 'translateY(0)',
+    <AppBar position="sticky" sx={{height:{xs:100,sm:120,md:150}, backgroundColor:'white', color:'darkgoldenrod', transform: scrollDirection === 'down' ? 'translateY(-100%)' : 'translateY(0)',
       transition: 'transform 0.3s ease-in-out',}}elevation={1}>
      
         <Toolbar disableGutters sx={{ height:'100%',paddingX:{lg:'3%',md:0},  display:'flex',justifyContent:'space-between', alignItems:'center'}}>
@@ -72,11 +72,7 @@ const NavBar = ()=> {
               onClose={handleCloseNavMenu}
               sx={{ display: { width:'50vw',xs: 'block', md: 'none',display:'flex',flexDirection:'column',gap:3 }, paddingX:'20%' }}
             >
-                      {isSmallScreen && (
-                  <Link to='/'>
-                  <img src={logo} alt='Logo' width={130}/>
-                  </Link>
-                )}
+                
                 <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}}    >
                   <NavLink activeClassName='active' style={{textDecoration:'none', color:'inherit',padding:5, width:'100%'}} to='/'><Typography sx={{ textAlign: 'center' }}>HOME</Typography></NavLink>
                   </MenuItem>
@@ -84,7 +80,7 @@ const NavBar = ()=> {
                   <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='about-us'><Typography sx={{ textAlign: 'center' }}>ABOUT US</Typography></NavLink>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
-                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='/news-and-updates'><Typography sx={{ textAlign: 'center' }}>OUR PROGRAMS</Typography></NavLink>
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='/news-and-updates'><Typography sx={{ textAlign: 'center' }}>NEWS & UPDATES</Typography></NavLink>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
                   <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='contact-us'><Typography sx={{ textAlign: 'center' }}>CONTACT US</Typography></NavLink>
@@ -97,6 +93,14 @@ const NavBar = ()=> {
           <img src={logo} alt='Logo' width={160}/>
           </Link>
          )}
+
+            {isSmallScreen && (
+                <Box mr={4}>
+                  <Link to='/'>
+                  <img src={logo} alt='Logo' width={130}/>
+                  </Link>
+                  </Box>
+                )}
           
          
 
@@ -172,7 +176,8 @@ const NavBar = ()=> {
               </NavLink>
            
           </Box>
-          <Link to='/support-us' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}}}>Donate Now</Button></Link>
+          
+          <Link to='/support-us' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}, display:{xs:'none',sm:'none',md:'block'}}}>Donate Now</Button></Link>
 
         </Toolbar>
    

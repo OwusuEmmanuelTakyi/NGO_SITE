@@ -1,34 +1,24 @@
-import React, { useEffect, useState } from 'react';
+
 import HeroSection from '../Components/HeroSection';
 import { Container, Typography, Grid, Box, LinearProgress, Divider } from '@mui/material';
 import LittleCard from '../Components/LittleCard';
 import { blue, grey } from '@mui/material/colors';
 import sanityClient from '../sanityClient'; // Adjust path as needed
+import lady1 from '../images/lady1.jpg';
+import lady2 from '../images/lady2.jpg';
+import man1 from '../images/man1.jpg'
 
 const Donate = () => {
-  const [testimonials, setTestimonials] = useState([]);
-  const [loading, setLoading] = useState(true);
+
   const title = 'SUPPORT US';
+  const name1 = ' Ama Eshun';
+  const name2 = 'Kwame Adu';
+  const name3 = 'Nana Yaa';
+  const testimonial1 = 'Thanks to Ama Yeduah Foundations, I now have access to clean water and better healthcare. My family’s life has improved        tremendously, and we are forever grateful for their support.'
+  const testimonial2 = 'I am proud to be a part of Ama Yeduah Foundations mission. Their dedication to empowering communities is truly inspiring, and I am honored to contribute to their cause.'
+  const testimonial3 = 'I have seen firsthand the impact of Ama Yeduah Foundations work. They have transformed the lives of many, and I am excited to see how they continue to make a difference in our community.'
 
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      const query = `*[_type == "testimonial"]{
-        name,
-        testimonial,
-        "imageUrl": image.asset->url
-      }`;
-      try {
-        const data = await sanityClient.fetch(query);
-        setTestimonials(data);
-      } catch (err) {
-        console.error('Failed to fetch testimonials:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    fetchTestimonials();
-  }, []);
 
   return (
     <div>
@@ -39,7 +29,7 @@ const Donate = () => {
           variant="h2"
           gutterBottom
           sx={{
-            fontSize: '3rem',
+            fontSize: 33,
             fontWeight: 'bold',
             color: blue[800],
             textAlign: 'center',
@@ -47,11 +37,7 @@ const Donate = () => {
             marginBottom: 5,
             textTransform: 'uppercase',
             letterSpacing: 2,
-            '&:hover': {
-              color: blue[600],
-              textDecoration: 'underline',
-            },
-            transition: 'color 0.3s ease, text-decoration 0.3s ease',
+       
           }}
         >
           Support Us
@@ -69,17 +55,13 @@ const Donate = () => {
           variant="h4"
           gutterBottom
           sx={{
-            fontSize: '2.5rem',
-            fontWeight: '600',
+            fontSize: {xs:24,md:30},
+            fontWeight: '500',
             color: blue[700],
             marginTop: 5,
             textTransform: 'uppercase',
             letterSpacing: 1,
-            '&:hover': {
-              color: blue[500],
-              textDecoration: 'underline',
-            },
-            transition: 'color 0.3s ease, text-decoration 0.3s ease',
+           
           }}
         >
           Why Donate?
@@ -100,60 +82,34 @@ const Donate = () => {
           variant="h4"
           gutterBottom
           sx={{
-            fontSize: '2.5rem',
-            fontWeight: '600',
+            fontSize: {xs:24,md:30},
+            fontWeight: '500',
             color: blue[700],
             marginTop: 8,
             marginBottom: 8,
             textTransform: 'uppercase',
-            letterSpacing: 1,
-            '&:hover': {
-              color: blue[500],
-              textDecoration: 'underline',
-            },
-            transition: 'color 0.3s ease, text-decoration 0.3s ease',
+           
+          
+            
           }}
         >
           How Your Donation Helps
         </Typography>
-        {loading ? (
-          <Typography
-            variant="body1"
-            align="center"
-            sx={{ fontSize: '1.2rem', color: grey[600] }}
-          >
-            Loading reviews...
-          </Typography>
-        ) : (
-          <Grid container spacing={3} flexWrap='wrap'>
-            {testimonials.length > 0 ? (
-              testimonials.map((test, index) => (
-                <Grid item xs={12} sm={6} md={3} mb={2} key={index}>
-                  <LittleCard
-                    name={test.name}
-                    testimonial={test.testimonial}
-                    avatar={test.imageUrl} // Pass image URL to LittleCard
-                  />
-                </Grid>
-              ))
-            ) : (
-              <Typography
-                variant="body1"
-                align="center"
-                sx={{ fontSize: '1.2rem', color: grey[600] }}
-              >
-                No reviews available.
-              </Typography>
-            )}
-          </Grid>
-        )}
+      
+              
+            <Box sx={{display:'flex', flexDirection:{md:'row',sm:'column',xs:'column'},width:'100%', justifyContent:'space-around',alignItems:'center',gap:5}}>
+              <LittleCard name={name1} testimonial={testimonial1} avatar={lady1}/>
+              <LittleCard name={name2} testimonial={testimonial2} avatar={man1}/>
+              <LittleCard name={name3} testimonial={testimonial3} avatar={lady2}/>
+              </Box>
+       
 
         <Typography
           variant="h4"
           gutterBottom
           sx={{
             fontSize: '2.5rem',
-            fontWeight: '600',
+            fontWeight: '500',
             color: blue[700],
             marginTop: 8,
           }}
@@ -205,8 +161,8 @@ const Donate = () => {
             variant="h4"
             gutterBottom
             sx={{
-              fontSize: '2.5rem',
-              fontWeight: '600',
+              fontSize: 28,
+              fontWeight: '500',
               color: blue[700],
             }}
           >
@@ -226,8 +182,8 @@ const Donate = () => {
           variant="h4"
           gutterBottom
           sx={{
-            fontSize: '2.5rem',
-            fontWeight: '600',
+            fontSize: {xs:24,md:30},
+            fontWeight: '500',
             color: blue[700],
           }}
         >

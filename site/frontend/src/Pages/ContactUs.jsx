@@ -84,28 +84,7 @@ const ContactForm = () => {
   );
 };
 
-// Contact Information Section
-const ContactInfo = () => {
-  return (
-    <div className="contact-info-container">
-      <h2>Our Location & Contact Details</h2>
-      <div className="contact-info-boxes">
-        <div className="info-box">
-          <span>Location</span>
-          <p>3375 Sun Valley Road, Spokane, WA</p>
-        </div>
-        <div className="info-box">
-          <span>Phone</span>
-          <p>1 (123) 123 1234</p>
-        </div>
-        <div className="info-box">
-          <span>Email</span>
-          <p>amayeduahfoundation@gmail.com</p>
-        </div>
-      </div>
-    </div>
-  );
-};
+
 
 
 const ContactMap = () => {
@@ -136,15 +115,20 @@ const Contact = () => {
   return (
     <>
       <HeroSection title={title} />
-      <section className="contact-section">
-        <div className="form-section">
-          <ContactForm />
-        </div>
-        <div className="info-map-section">
-          <ContactInfo />
+      
+        <Box sx={{display:'flex', flexDirection:{xs:'column',sm:'column',md:'row'}, gap:5, py:'6%',width:'100%',px:'6%'}}>
+        <Box sx={{flex:1}} >
+        <ContactForm />
+        
+        </Box>
+         <Box sx={{flex:1}}>
           <ContactMap />
-        </div>
-      </section>
+          </Box>
+
+        </Box>
+        
+        
+  
     </>
   );
 };

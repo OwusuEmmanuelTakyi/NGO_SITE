@@ -1,7 +1,6 @@
-import { Box, styled, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 import p1 from '../images/domabuse.png';
-import p2 from '../images/girlChild.jpeg';
 import p3 from '../images/girlChild2.jpg';
 import p4 from '../images/youthAbuse1.jpg';
 import p5 from '../images/youthAbuse2.jpg';

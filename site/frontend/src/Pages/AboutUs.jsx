@@ -6,6 +6,7 @@ import { Box } from '@mui/material';
 import lady1 from '../images/lady1.jpg'
 import lady2 from '../images/lady2.jpg'
 import man1 from '../images/man1.jpg'
+import Programs from '../Components/Programs.jsx'
 
 
 
@@ -30,13 +31,9 @@ const About = () => {
         <p><strong>Vision:</strong> To create a society where every individual, regardless of background, has access to essential health information, quality education, and opportunities to thrive.</p>
 
         <h2>Core Initiatives</h2>
-        <ul>
-          <li><strong>Breast Cancer Awareness:</strong> Promoting early detection, prevention, and providing support to breast cancer patients.</li>
-          <li><strong>Girl Child Education:</strong> Ensuring equal educational opportunities for girls in underprivileged areas.</li>
-          <li><strong>Education on Domestic Abuse:</strong> Raising awareness and providing resources to combat domestic violence.</li>
-          <li><strong>Youth Abuse Awareness:</strong> Educating young people on the dangers of abuse and how to protect themselves.</li>
-          <li><strong>Reproductive Health Education:</strong> Focusing on educating teenagers about reproductive health and safe practices.</li>
-        </ul>
+        <Box>
+          <Programs/>
+        </Box>
 
         <h2>Organizational Values</h2>
         <ul>

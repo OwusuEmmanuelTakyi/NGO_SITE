@@ -5,7 +5,7 @@ import { blue } from '@mui/material/colors';
 
 const Footer = () => {
   return (
-    <Box component="footer" sx={{ backgroundColor: '#333', color: '#fff',width:'100%', display:'flex',flexDirection:'column',justifyContent:'space-between',alignItems:'center' ,padding:'3%'}}>
+    <Box component="footer" sx={{ bottom:0, backgroundColor: '#333', color: '#fff',width:'100%', display:'flex',flexDirection:'column',justifyContent:'space-between',alignItems:'center' ,padding:'3%'}}>
         <Container sx={{display:'flex', flexDirection:'row', justifyContent:'space-between', width:'90%',alignItems:'center'}}>
         <Box>
       <Typography variant="body2" color='inherit'>Contact: +123456789</Typography>
