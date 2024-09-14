@@ -1,30 +1,33 @@
-import HeroSection from '../Components/HeroSection';
+import React, { useState, useEffect } from 'react';
 import { Typography, Box, Button, Avatar, Paper } from '@mui/material';
 import { grey, blue } from '@mui/material/colors';
-import { useState, useEffect } from 'react';
+import HeroSection from '../Components/HeroSection';
 import sanityClient from '../sanityClient';
+import { PortableText } from '@portabletext/react'; // Import PortableText for rendering
 
 const NewsDetails = () => {
-  const [postData, setPostData] = useState([]);
-  const [visiblePosts, setVisiblePosts] = useState(5); // Control how many posts to show
-  const [expandedPosts, setExpandedPosts] = useState({}); // Control expanded state for each post
+  const [postData, setPostData] = useState([]); // State to store fetched posts
+  const [visiblePosts, setVisiblePosts] = useState(5); // Number of posts to show initially
+  const [expandedPosts, setExpandedPosts] = useState({}); // State to track which posts are expanded
 
+  // Fetch posts from Sanity on component mount
   useEffect(() => {
     sanityClient
       .fetch(
         `*[_type == "post"] | order(_createdAt desc) {
+          _id,
           title,
-          mainImage{
-            asset->{
+          mainImage {
+            asset -> {
               _id,
               url
             }
           },
           body,
-          author->{
+          author -> {
             name,
-            image{
-              asset->{
+            image {
+              asset -> {
                 _id,
                 url
               }
@@ -38,16 +41,22 @@ const NewsDetails = () => {
 
   const title = 'News & Updates';
 
-  // Function to truncate the text to 30 words
-  const truncateText = (text, wordLimit) => {
-    return text.split(' ').slice(0, wordLimit).join(' ') + (text.split(' ').length > wordLimit ? '...' : '');
+  // Function to truncate the text to a word limit (default 30 words)
+  const truncateText = (blocks, wordLimit = 30) => {
+    if (!blocks || blocks.length === 0) return ''; // If no blocks, return empty string
+    const plainText = blocks
+      .map((block) => (block.children ? block.children.map((child) => child.text).join(' ') : ''))
+      .join(' '); // Extract plain text from block content
+
+    const words = plainText.split(' ');
+    return words.length > wordLimit ? words.slice(0, wordLimit).join(' ') + '...' : plainText;
   };
 
-  // Function to toggle read more/less for each post
+  // Function to toggle "Read More"/"Read Less"
   const toggleReadMore = (postId) => {
     setExpandedPosts((prevState) => ({
       ...prevState,
-      [postId]: !prevState[postId], // Toggle the expanded state for this post
+      [postId]: !prevState[postId], // Toggle the expanded state of the selected post
     }));
   };
 
@@ -65,11 +74,10 @@ const NewsDetails = () => {
         Latest News
       </Typography>
 
-      {/* Map over posts, showing only 'visiblePosts' */}
+      {/* Loop through and display posts */}
       {postData.slice(0, visiblePosts).map((newsItem) => {
-        const fullText = newsItem.body[0]?.children[0]?.text || 'No content available.';
-        const isExpanded = expandedPosts[newsItem._id]; // Check if the current post is expanded
-        const displayedText = isExpanded ? fullText : truncateText(fullText, 30); // Show truncated or full text
+        const isExpanded = expandedPosts[newsItem._id]; // Check if the post is expanded
+        const displayedText = isExpanded ? newsItem.body : truncateText(newsItem.body, 30); // Show truncated or full text
 
         return (
           <Paper
@@ -107,28 +115,31 @@ const NewsDetails = () => {
                 {newsItem.title}
               </Typography>
 
-              <Typography variant="body1" sx={{ fontSize: 18 }}>
-                {displayedText}
-              </Typography>
+              {/* Render PortableText or truncated text */}
+              {isExpanded ? (
+                <PortableText value={newsItem.body} />
+              ) : (
+                <Typography variant="body1" sx={{ fontSize: 18 }}>
+                  {truncateText(newsItem.body, 30)}
+                </Typography>
+              )}
 
               {/* Read More / Read Less Button */}
-              {fullText.split(' ').length > 30 && (
-                <Button
-                  variant="contained"
-                  onClick={() => toggleReadMore(newsItem._id)}
-                  sx={{
-                    textTransform: 'none',
-                    fontSize: '16px',
-                    backgroundColor: blue[700],
-                    color: 'white',
-                    '&:hover': {
-                      backgroundColor: blue[900],
-                    },
-                  }}
-                >
-                  {isExpanded ? 'Read Less' : 'Read More'}
-                </Button>
-              )}
+              <Button
+                variant="contained"
+                onClick={() => toggleReadMore(newsItem._id)}
+                sx={{
+                  textTransform: 'none',
+                  fontSize: '16px',
+                  backgroundColor: blue[700],
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: blue[900],
+                  },
+                }}
+              >
+                {isExpanded ? 'Read Less' : 'Read More'}
+              </Button>
 
               {/* Author Information */}
               <Box sx={{ display: 'flex', alignItems: 'center', marginTop: 3 }}>
