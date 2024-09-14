@@ -167,7 +167,7 @@ const HeroSection = ({ title, description }) => {
               fontSize: 18,
               position: 'absolute',
               bottom: '-130%',
-              left: '40%',
+              left:{md:'40%',lg:'40%',sm:'30%',xs:'20%'},
               textAlign: 'center',
               color: 'white',
             }}

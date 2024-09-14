@@ -6,6 +6,7 @@ import HeroSection from '../Components/HeroSection';
 import { Box } from '@mui/material';
 import 'leaflet/dist/leaflet.css';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
+import { grey } from '@mui/material/colors';
 
 // Contact Form Component with EmailJS Integration
 const ContactForm = () => {
@@ -93,7 +94,7 @@ const ContactMap = () => {
   return (
     
     <Box>
-       <MapContainer center={center} zoom={13} style={{ height: '400px', width: '100%' }}>
+       <MapContainer zoom={8} style={{ height: '450px', width: '100%',marginTop:10 }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -116,7 +117,7 @@ const Contact = () => {
     <>
       <HeroSection title={title} />
       
-        <Box sx={{display:'flex', flexDirection:{xs:'column',sm:'column',md:'row'}, gap:5, py:'6%',width:'100%',px:'6%'}}>
+        <Box sx={{bgcolor:grey[200],justifyContent:'center' ,display:'flex', flexDirection:{xs:'column',sm:'column',md:'row'}, gap:5,mx:'10%', my:'6%',width:'80%',px:'6%',py:3}}>
         <Box sx={{flex:1}} >
         <ContactForm />
         

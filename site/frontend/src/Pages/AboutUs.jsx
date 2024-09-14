@@ -49,7 +49,7 @@ const About = () => {
         <Box sx={{width:'100%',height:50}}>
 
         </Box>
-        <Box sx={{display:'flex', flexDirection:{md:'row',sm:'column',xs:'column'},width:'100%', justifyContent:'space-around',alignItems:'center'}}>
+        <Box sx={{gap:3, display:'flex', flexDirection:{md:'row',sm:'column',xs:'column'},width:'100%', justifyContent:'space-around',alignItems:'center'}}>
       <Leaders image={lady1} name='Patience Ama Yeduah ' role='Founder and President' learnMoreInfo={(<div>   TIN/BO ID: P0007851014 <br/>
                                                                                                             Nationality: Ghanaian <br/>
                                                                                                             Principal Place of Business: D16, ACCRA, GREATER ACCRA,<br/> Ghana
