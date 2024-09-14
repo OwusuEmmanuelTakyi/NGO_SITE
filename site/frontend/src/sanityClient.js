@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-require('dotenv').config();  // Load environment variables
+  // Load environment variables
 
 // Define the Sanity token outside the client config
 const sanityToken = process.env.REACT_APP_SANITY_TOKEN;
