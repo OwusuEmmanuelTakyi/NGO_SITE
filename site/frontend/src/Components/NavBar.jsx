@@ -70,7 +70,7 @@ const NavBar = ()=> {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { width:'50vw',xs: 'block', md: 'none',display:'flex',flexDirection:'column',gap:3 }, paddingX:'20%' }}
+              sx={{ display: {xs: 'block', md: 'none' },display:'flex',flexDirection:'column',gap:3,width:'50vw', paddingX:'20%' }}
             >
                 
                 <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}}    >
@@ -84,6 +84,9 @@ const NavBar = ()=> {
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
                   <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='contact-us'><Typography sx={{ textAlign: 'center' }}>CONTACT US</Typography></NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
+                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='support-us'><Typography sx={{ textAlign: 'center' }}>SUPPORT US</Typography></NavLink>
                 </MenuItem>
               
             </Menu>

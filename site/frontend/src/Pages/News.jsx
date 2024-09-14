@@ -41,7 +41,7 @@ const News = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: { md: 'row', sm: 'column', xs: 'column' }, gap: 10, width: '100%', justifyContent: { md: 'space-around', lg: 'center', sm: 'space-around', xs: 'space-around' }, paddingX: { xs: '10%', md: '5%' }, mb: '10' }}>
       <Box>
-        <Typography variant="h5" component="div" textAlign="center" fontWeight={600} mb={4}>Recent Posts</Typography>
+        <Typography variant="h5" component="div" textAlign="center" fontWeight={600} mb={2}>Recent Posts</Typography>
       </Box>
       <Divider orientation="vertical" flexItem />
       <Grid container spacing={2} sx={{ width: '100%' }}>

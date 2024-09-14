@@ -1,9 +1,8 @@
 
 import HeroSection from '../Components/HeroSection';
-import { Container, Typography, Grid, Box, LinearProgress, Divider } from '@mui/material';
+import { Container, Typography, Box, LinearProgress, Divider } from '@mui/material';
 import LittleCard from '../Components/LittleCard';
 import { blue, grey } from '@mui/material/colors';
-import sanityClient from '../sanityClient'; // Adjust path as needed
 import lady1 from '../images/lady1.jpg';
 import lady2 from '../images/lady2.jpg';
 import man1 from '../images/man1.jpg'
@@ -108,7 +107,7 @@ const Donate = () => {
           variant="h4"
           gutterBottom
           sx={{
-            fontSize: '2.5rem',
+            fontSize: {xs:24,md:30},
             fontWeight: '500',
             color: blue[700],
             marginTop: 8,
