@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import HeroSection from '../Components/HeroSection';
-<<<<<<< HEAD
-import { Container, Typography, Box, LinearProgress, Divider } from '@mui/material';
-import LittleCard from '../Components/LittleCard';
-import { blue, grey } from '@mui/material/colors';
-import lady1 from '../images/lady1.jpg';
-import lady2 from '../images/lady2.jpg';
-import man1 from '../images/man1.jpg'
-=======
 import { Container, Typography,  Box, LinearProgress, Divider } from '@mui/material';
 import LittleCard from '../Components/LittleCard';
 import { blue, grey } from '@mui/material/colors';
 import sanityClient from '../sanityClient'; // Adjust path as needed
 import lady1 from '../images/lady1.jpg'; // Remove this if using Sanity images
->>>>>>> 39da52033fd46ea7146e4311c2584cddd8b67c31
 
 const Donate = () => {
   const title = 'SUPPORT US';
