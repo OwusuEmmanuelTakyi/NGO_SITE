@@ -8,28 +8,31 @@ import 'leaflet/dist/leaflet.css';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import { grey } from '@mui/material/colors';
 
-// Contact Form Component with EmailJS Integration
+emailjs.init('HoOemYVGzs6FjhTMs');
+
 const ContactForm = () => {
-  const form = useRef();  // UseRef for referencing the form
+  const form = useRef();
   const [emailSent, setEmailSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  // Send email function using EmailJS
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    // Send form data using emailjs
     emailjs
-      .sendForm('service_c1e0v2o', 'template_rgay28v', form.current, '_KgdCNEIkBvL8WDrV')
+      .sendForm('contact_service', 'template_bzhondi', form.current, 'HoOemYVGzs6FjhTMs')
       .then(
         (result) => {
           console.log('SUCCESS!', result.text);
-          setEmailSent(true);  // Set success flag
-          setErrorMessage('');  // Clear any previous error messages
+          setEmailSent(true);
+          setErrorMessage('');
+          setLoading(false);
         },
         (error) => {
           console.log('FAILED...', error.text);
           setErrorMessage('Failed to send message. Please try again later.');
+          setLoading(false);
         }
       );
   };
@@ -45,7 +48,7 @@ const ContactForm = () => {
             <label htmlFor="first_name">First Name</label>
             <input
               type="text"
-              name="first_name"  // Matches the {{first_name}} placeholder in the template
+              name="first_name"
               placeholder="Your first name"
               required
             />
@@ -54,7 +57,7 @@ const ContactForm = () => {
             <label htmlFor="last_name">Last Name</label>
             <input
               type="text"
-              name="last_name"  // Matches the {{last_name}} placeholder in the template
+              name="last_name"
               placeholder="Your last name"
               required
             />
@@ -63,7 +66,7 @@ const ContactForm = () => {
             <label htmlFor="email">Email</label>
             <input
               type="email"
-              name="email"  // Matches the {{email}} placeholder in the template
+              name="email"
               placeholder="Your email address"
               required
             />
@@ -71,28 +74,25 @@ const ContactForm = () => {
           <div className="form-group">
             <label htmlFor="message">Message</label>
             <textarea
-              name="message"  // Matches the {{message}} placeholder in the template
+              name="message"
               rows="4"
               placeholder="Your message"
               required
             ></textarea>
           </div>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <button type="submit" className="submit-btn">Submit</button>
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? 'Sending...' : 'Submit'}
+          </button>
         </form>
       )}
     </div>
   );
 };
 
-
-
-
 const ContactMap = () => {
   const center = [5.6037, -0.1870];
-
   return (
-    
     <Box>
        <MapContainer zoom={8} style={{ height: '450px', width: '100%',marginTop:10 }}>
         <TileLayer
@@ -102,7 +102,8 @@ const ContactMap = () => {
         <Marker position={center}>
         <FmdGoodOutlinedIcon color='red'/>
           <Popup>
-             Our NGO Location
+          <FmdGoodOutlinedIcon color='red'/>
+             Ama Yeduah Foundations
           </Popup>
         </Marker>
       </MapContainer>
@@ -110,26 +111,19 @@ const ContactMap = () => {
   );
 };
 
-// Main Contact Page Component
 const Contact = () => {
   const title = "LET'S GET IN TOUCH";
   return (
     <>
       <HeroSection title={title} />
-      
-        <Box sx={{bgcolor:grey[200],justifyContent:'center' ,display:'flex', flexDirection:{xs:'column',sm:'column',md:'row'}, gap:5,mx:'10%', my:'6%',width:'80%',px:'6%',py:3}}>
+              <Box sx={{bgcolor:grey[200],justifyContent:'center' ,display:'flex', flexDirection:{xs:'column',sm:'column',md:'row'}, gap:5,mx:'10%', my:'6%',width:'80%',px:'6%',py:3}}>
         <Box sx={{flex:1}} >
-        <ContactForm />
-        
+        <ContactForm /> 
         </Box>
          <Box sx={{flex:1}}>
           <ContactMap />
           </Box>
-
         </Box>
-        
-        
-  
     </>
   );
 };
