@@ -70,7 +70,7 @@ const NavBar = ()=> {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: {xs: 'block', md: 'none' },display:'flex',flexDirection:'column',gap:3,width:'50vw', paddingX:'20%' }}
+              sx={{ display: {xs: 'block', md: 'none' },flexDirection:'column',gap:3,width:'50vw', paddingX:'20%' }}
             >
                 
                 <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}}    >
@@ -180,7 +180,7 @@ const NavBar = ()=> {
            
           </Box>
           
-          <Link to='/support-us' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},display:{xs:'block'},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:170,md:150,sm:100,xs:120}, height:{md:50,sm:40,xs:30}, display:{xs:'none',sm:'none',md:'block'}}}>Donate Now</Button></Link>
+          <Link to='/support-us' style={{textDecoration:'none', color:'inherit'}}><Button variant='contained' sx={{fontSize:{xs:11,sm:13,md:18,lg:20},marginX:{sm:10,xs:5},backgroundColor:'green', color:'white', width:{lg:190,md:180,sm:100,xs:120}, height:{md:50,sm:40,xs:30}, display:{xs:'none',sm:'none',md:'block'}}}>Donate Now</Button></Link>
 
         </Toolbar>
    

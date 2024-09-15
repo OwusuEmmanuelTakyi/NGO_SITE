@@ -2,7 +2,7 @@ import React from 'react';
 import './About.css';
 import HeroSection from '../Components/HeroSection';
 import Leaders from '../Components/Leaders';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import lady1 from '../images/lady1.jpg'
 import lady2 from '../images/lady2.jpg'
 import man1 from '../images/man1.jpg'
@@ -12,7 +12,9 @@ import Programs from '../Components/Programs.jsx'
 
 const About = () => {
   const title = 'KNOW MORE ABOUT US'
-  const LearnMoreTitle = 'Patience Ama Yeduah Eshun'
+  const learnMoreTitle1 = 'Patience Ama Yeduah Eshun'
+  const learnMoreTitle2 = 'Emmanuel Coffie'
+  const learnMoreTitle3 = 'Patrick Worae '
 
                                     
  
@@ -50,15 +52,23 @@ const About = () => {
 
         </Box>
         <Box sx={{gap:3, display:'flex', flexDirection:{md:'row',sm:'column',xs:'column'},width:'100%', justifyContent:'space-around',alignItems:'center'}}>
-      <Leaders image={lady1} name='Patience Ama Yeduah ' role='Founder and President' learnMoreInfo={(<div>   TIN/BO ID: P0007851014 <br/>
+      <Leaders image={lady1} name='Patience Ama Yeduah ' learnMoreTitle={learnMoreTitle1} role='Founder and President' learnMoreInfo={(<div>   TIN/BO ID: P0007851014 <br/>
                                                                                                             Nationality: Ghanaian <br/>
                                                                                                             Principal Place of Business: D16, ACCRA, GREATER ACCRA,<br/> Ghana
                                                                                                             Voting Rights - Direct: 20.00%<br/>
                                                                                                             Right to Appoint or Remove Directors: 20.00%<br/>
                                                                                                             Role: Founder and President, responsible for providing visionary leadership, representing the 
                                                                                                               Foundation, and overseeing all operations. </div>)}/>
-      <Leaders image={lady2} name='Emmanuel Coffie' role='Treasurer'/>
-      <Leaders image={man1} name='Patrick Worae' role='Administrator' LearnMoreTitle={LearnMoreTitle} learnMoreInfo='TIN/BO ID: P0007851014'/>
+      <Leaders image={lady2} name='Emmanuel Coffie' learnMoreTitle={learnMoreTitle2} role='Treasurer' learnMoreInfo={(<div>
+        Mr. Emmanuel Coffie is the Treasurer of our NGO, bringing extensive experience in finance and administration to our team. He is also the Managing Director of Byzimines businesses and serves as the country’s facilitator for ACCOSCA. Previously, he held the position of General Manager at the Ghana Co-operative Credit Unions Association (CUA) Ltd in Accra, Ghana.
+        <br/>
+        Mr. Coffie’s exceptional qualifications and dedication to continuous learning make him an invaluable asset to our organization. His expertise in accounting and finance ensures that our financial operations are managed with the highest level of accuracy and integrity. Emmanuel’s leadership and commitment to excellence drive our mission forward, making a significant impact on the communities we serve.
+      </div>)}/>
+      <Leaders image={man1} name='Patrick Worae' role='Administrator' learnMoreTitle={learnMoreTitle3} learnMoreInfo={(<Typography>
+        Patrick Worae is the dedicated Administrator of our NGO, bringing a wealth of experience and a passion for community development to our team. With a strong background in both finance and administration, Patrick ensures that our operations run smoothly and efficiently.
+        <br/>
+        Patrick’s exceptional interpersonal and analytical skills, combined with his self-motivated approach, make him an invaluable asset to our organization. He excels in generating innovative ideas, leading effective meetings, and adapting to change. Patrick is committed to continuous learning and professional development, always striving to enhance both his skills and the impact of our NGO.
+      </Typography>)}/>
 
      
       </Box>

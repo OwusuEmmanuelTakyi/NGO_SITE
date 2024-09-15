@@ -23,7 +23,7 @@ const style = {
     p: 4,
   };
 
-const Leaders = ({image,alt,name,role, learnMoreInfo}) => {
+const Leaders = ({image,alt,name,role, learnMoreInfo,learnMoreTitle}) => {
 
     const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -63,7 +63,7 @@ const Leaders = ({image,alt,name,role, learnMoreInfo}) => {
       >
         <Box sx={style}>
           <Typography id="keep-mounted-modal-title" variant="h6" component="h3">
-          Patience Ama Yeduah Eshun
+         {learnMoreTitle}
           </Typography>
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
               {learnMoreInfo}
