@@ -9,7 +9,7 @@ import MyMap from '../Components/MyMap';
 
 
 
-emailjs.init('dBtyByt9dlVN9Nmi5');
+emailjs.init('HoOemYVGzs6FjhTMs');
 
 const ContactForm = () => {
   const form = useRef();
@@ -22,7 +22,7 @@ const ContactForm = () => {
     setLoading(true);
 
     emailjs
-      .sendForm('contact_service', 'template_1kfko85', form.current, 'dBtyByt9dlVN9Nmi5')
+      .sendForm('contact_service', 'template_bzhondi', form.current, 'HoOemYVGzs6FjhTMs')
       .then(
         (result) => {
           console.log('SUCCESS!', result.text);

@@ -32,7 +32,7 @@ const Programs = () => {
       <Box boxShadow={4} sx={{width:{md:'32%',sm:'90%',lg:'25%'}, height:400,backgroundColor:grey[200],borderRadius:3,  overflow:'hidden', objectFit:'fill'}}>
      
       <img src={p3} alt='first' width='100%' v />
-      <Typography sx={{fontSize:24, fontWeight:'600',textAlign:'center', paddingY:'5%'}}>Girl Child Education</Typography>
+      <Typography sx={{fontSize:24, fontWeight:'600',textAlign:'center',height:400, paddingY:'5%'}}>Girl Child Education</Typography>
       
       </Box>
       <Box boxShadow={4} sx={{width:{md:'32%',sm:'90%',lg:'25%'}, height:400,backgroundColor:grey[200],borderRadius:3,  overflow:'hidden' ,objectFit:'fill'}}>
