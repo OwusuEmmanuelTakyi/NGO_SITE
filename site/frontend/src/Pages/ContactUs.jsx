@@ -1,14 +1,15 @@
 import React, { useRef, useState } from 'react';
 import './Contact.css';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import emailjs from '@emailjs/browser';
 import HeroSection from '../Components/HeroSection';
 import { Box } from '@mui/material';
-import 'leaflet/dist/leaflet.css';
-import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import { grey } from '@mui/material/colors';
+import MyMap from '../Components/MyMap';
 
-emailjs.init('HoOemYVGzs6FjhTMs');
+
+
+
+emailjs.init('dBtyByt9dlVN9Nmi5');
 
 const ContactForm = () => {
   const form = useRef();
@@ -21,7 +22,7 @@ const ContactForm = () => {
     setLoading(true);
 
     emailjs
-      .sendForm('contact_service', 'template_bzhondi', form.current, 'HoOemYVGzs6FjhTMs')
+      .sendForm('contact_service', 'template_1kfko85', form.current, 'dBtyByt9dlVN9Nmi5')
       .then(
         (result) => {
           console.log('SUCCESS!', result.text);
@@ -90,26 +91,6 @@ const ContactForm = () => {
   );
 };
 
-const ContactMap = () => {
-  const center = [5.6037, -0.1870];
-  return (
-    <Box>
-       <MapContainer zoom={8} style={{ height: '450px', width: '100%',marginTop:10 }}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={center}>
-        <FmdGoodOutlinedIcon color='red'/>
-          <Popup>
-          <FmdGoodOutlinedIcon color='red'/>
-             Ama Yeduah Foundations
-          </Popup>
-        </Marker>
-      </MapContainer>
-    </Box>
-  );
-};
 
 const Contact = () => {
   const title = "LET'S GET IN TOUCH";
@@ -120,12 +101,11 @@ const Contact = () => {
         <Box sx={{flex:1}} >
         <ContactForm /> 
         </Box>
-         <Box sx={{flex:1}}>
-          <ContactMap />
+         <Box sx={{flex:1,overflow:'hidden'}}>
+          <MyMap/>
           </Box>
         </Box>
     </>
   );
 };
-
 export default Contact;

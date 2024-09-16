@@ -4,7 +4,7 @@ import { blue, grey } from '@mui/material/colors';
 
 const LittleCard = ({ name, testimonial, avatar }) => {
   return (
-    <Card sx={{mt:6, maxWidth: 345,minHeight:300, borderRadius: 2, boxShadow: 3, position:'relative', overflow:'visible' }}>
+    <Card sx={{mt:6, maxWidth: 345,minHeight:400, borderRadius: 2, boxShadow: 3, position:'relative', overflow:'visible' }}>
       <Box boxShadow={3} sx={{width:120, height:120, borderRadius:'50%',position:'absolute',top:-40,left:'34%'}}>
           <Avatar
           
