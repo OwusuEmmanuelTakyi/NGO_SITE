@@ -15,7 +15,7 @@ const MyMap = () => {
 
   useEffect(() => {
     const iconFeature = new Feature({
-      geometry: new Point(fromLonLat([-0.20335, 5.67068])),
+      geometry: new Point(fromLonLat([-0.23650215581875977, 5.637657069695066])),
     });
 
     const iconStyle = new Style({
@@ -44,7 +44,7 @@ const MyMap = () => {
         vectorLayer,
       ],
       view: new View({
-        center: fromLonLat([-0.20335, 5.67068]),
+        center: fromLonLat([-0.23650215581875977, 5.637657069695066]),
         zoom: 13,
       }),
     });
