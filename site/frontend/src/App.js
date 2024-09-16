@@ -8,12 +8,14 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
 import NewsDetails from './Pages/NewsDetails';
+import ScrollToTop from './Components/ScrollToTop'
 
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+      <ScrollToTop/>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />

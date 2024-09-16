@@ -70,7 +70,7 @@ const NewsDetails = () => {
       {/* Hero Section */}
       <HeroSection title={title} />
 
-      <Typography variant="h3" textAlign="center" my={6} sx={{ fontWeight: 'bold', color: grey[900] }}>
+      <Typography variant="h3" textAlign="center" my={6} sx={{ fontSize:{sm:20,xs:20,md:40},fontWeight: 'bold', color: grey[900] }}>
         Latest News
       </Typography>
 

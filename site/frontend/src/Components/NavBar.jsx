@@ -80,7 +80,7 @@ const NavBar = ()=> {
                   <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='about-us'><Typography sx={{ textAlign: 'center' }}>ABOUT US</Typography></NavLink>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
-                  <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='/news-and-updates'><Typography sx={{ textAlign: 'center' }}>NEWS & UPDATES</Typography></NavLink>
+                  <NavLink  activeClassName='active' style={{textAlign:'center', width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='/news-and-updates'><Typography sx={{ textAlign: 'center' }}>NEWS&UPDATES</Typography></NavLink>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu} style={{listStyleType:'none'}} >
                   <NavLink  activeClassName='active' style={{ width:'100%',textDecoration:'none', color:'inherit',padding:5}} to='contact-us'><Typography sx={{ textAlign: 'center' }}>CONTACT US</Typography></NavLink>
